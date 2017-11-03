@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/andrewavina/stock-app/issues"
   },
-  "homepage": "https://github.com/andrewavina/stock-app#readme"
+  "homepage": "https://github.com/andrewavina/stock-app#readme",
+  "dependencies": {
+    "mongoose": "4.10.8"
+  }
 }
