@@ -9,4 +9,14 @@ const
     PORT = process.env.PORT || 3001, //either the port the webhost (e.g. Heroku) assigns if deployed or if local run on port number
     usersRoutes = require('./routes/users.js')
 
+mongoose.connect(MONGODB_URI, (err) => {
+    console.log(err || `Connected to MongoDB.`)
+})
+
+app.use(logger('dev'))
+app.use(bodyParser.json())
+
+app.get('/api', (req, res) => {
+    res.json({message: "API root."})
+})
 
