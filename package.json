@@ -18,6 +18,12 @@
   },
   "homepage": "https://github.com/andrewavina/stock-app#readme",
   "dependencies": {
-    "mongoose": "4.10.8"
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "mongoose": "4.10.8",
+    "morgan": "^1.9.0"
   }
 }
