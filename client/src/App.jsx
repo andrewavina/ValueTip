@@ -37,7 +37,7 @@ class App extends React.Component {
                     <Route path="/login" render={(props) => {
                         return !currentUser
                             ? <LogIn {...props} onLoginSuccess={this.onLoginSuccess.bind(this)} />
-                            : <VIP /> //fixed issue where if currentUser typed in /login in URL bar, they would be able to go to that page. Set it up like this to prevent them from accessing that page to avoid any potential "double login" issues.
+                            : <Redirect to="/vip" /> //fixed issue where if currentUser typed in /login in URL bar, they would be able to go to that page. Set it up like this to prevent them from accessing that page to avoid any potential "double login" issues.
                     }} />
 
                     <Route path="/logout" render={(props) => {
