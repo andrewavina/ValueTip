@@ -23,7 +23,7 @@ app.get('/api', (req, res) => {
     res.json({message: "API root."})
 })
 
-app.use('/api/users', userRoutes)
+app.use('/api/users', usersRoutes)
 
 //only applies to heroku
 app.use('*', (req, res) => {
