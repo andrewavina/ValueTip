@@ -1,0 +1,14 @@
+/* initial css just for start testing */
+
+body {
+    padding: 20px;
+}
+
+a, button {
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.NavBar {
+    margin-bottom: 20px;
+}
