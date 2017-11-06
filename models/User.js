@@ -8,7 +8,7 @@ const
 
 //adds a method to a user document object to create a hashed password
 userSchema.methods.generateHash = function(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(6)) //hashing algorithm will run 6 times
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8)) //hashing algorithm will run 8 times
 }
 
 // adds a method to a user document object to check if provided password is correct
