@@ -46,7 +46,9 @@ class App extends React.Component {
 
                     {/* the sign up component takes an 'onSignUpSuccess' prop which will perform the same thing as onLoginSuccess: set the state to contain the currentUser */}
                     <Route path="/signup" render={(props) => {
-                        return <SignUp {...props} onSignUpSuccess={this.onLoginSuccess.bind(this)} />
+                        return !currentUser
+                        ? <SignUp {...props} onSignUpSuccess={this.onLoginSuccess.bind(this)} />
+                        : <Redirect to="/vip" /> //fixed issue where if currentUser typed in /signup in URL bar, they would be able to go to that page. Set it up like this to prevent them from accessing that page to avoid any potential "double sign up" issues.
                     }} />
 
                     <Route path="/vip" render={() => {
