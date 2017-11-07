@@ -2,7 +2,7 @@ const
     mongoose = require('mongoose'),
     companySchema = new mongoose.Schema({
         name: { type: String },
-        ticker: {type: String },
+        ticker: { type: String },
         price: { type: Number }
     })
 
