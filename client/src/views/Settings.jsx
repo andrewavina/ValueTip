@@ -5,7 +5,7 @@ const Settings = (props) => {
     return (
         <div className='settings'>
             <form>
-                <input type="password" placeholder="Password" name="password" value={password} />                   
+                <input type="password" placeholder="Password" name="password" />                   
                 <button>Change Password</button>
             </form>
             <br/>
@@ -13,3 +13,5 @@ const Settings = (props) => {
         </div>
     )
 }
+
+export default Settings

@@ -9,6 +9,7 @@ import SignUp from './views/SignUp'
 import Companies from './views/Companies'
 import MyReport from './views/MyReport'
 import Home from './views/Home'
+import Settings from './views/Settings'
 
 
 
@@ -42,6 +43,13 @@ class App extends React.Component {
                 <NavBar currentUser={this.state.currentUser} />
 
                 <Switch>
+                    
+                    <Route path="/settings" render={(props) => {
+                        //console.log(currentUser) // test current user is coming through
+                        return currentUser
+                            ? <Settings />
+                            : <Redirect to="/login" />
+                    }} />
                     
                     <Route path="/companies" render={(props) => {
                         //console.log(currentUser) // test current user is coming through
