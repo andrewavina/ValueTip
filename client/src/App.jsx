@@ -13,11 +13,13 @@ import Home from './views/Home'
 
 
 class App extends React.Component {
-    state = { currentUser: null }
+    state = { currentUser: clientAuth.getCurrentUser() }
     //order of below functions doesn't matter before render()...
-    componentWillMount() {
-        this.setState({ currentUser: clientAuth.getCurrentUser() })
-    }
+    
+    //initial fix for refresh of companies
+        // componentWillMount() {
+        //     this.setState({ currentUser: clientAuth.getCurrentUser() })
+        // }
 
     componentDidMount() {
         this.setState({ currentUser: clientAuth.getCurrentUser() })
