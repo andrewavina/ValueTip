@@ -10,6 +10,7 @@ import Companies from './views/Companies'
 import MyReport from './views/MyReport'
 import Home from './views/Home'
 import Settings from './views/Settings'
+import DeleteUser from './views/DeleteUser'
 
 
 
@@ -44,6 +45,13 @@ class App extends React.Component {
 
                 <Switch>
                     
+                    <Route path="/deleteuser" render={(props) => {
+                        //console.log(currentUser) // test current user is coming through
+                        return currentUser
+                            ? <DeleteUser />
+                            : <Redirect to="/login" />
+                    }} />
+
                     <Route path="/settings" render={(props) => {
                         //console.log(currentUser) // test current user is coming through
                         return currentUser

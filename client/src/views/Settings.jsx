@@ -9,7 +9,9 @@ const Settings = (props) => {
                 <button>Change Password</button>
             </form>
             <br/>
-            <button>Delete Account</button>
+            <button>
+                <a href="/deleteuser">Delete Account</a>
+            </button>
         </div>
     )
 }
