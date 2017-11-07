@@ -6,7 +6,7 @@ import NavBar from './NavBar'
 import LogIn from './views/LogIn'
 import LogOut from './views/LogOut'
 import SignUp from './views/SignUp'
-import VIP from './views/VIP'
+import MyReport from './views/MyReport'
 import Home from './views/Home'
 
 class App extends React.Component {
@@ -37,7 +37,7 @@ class App extends React.Component {
                     <Route path="/login" render={(props) => {
                         return !currentUser
                             ? <LogIn {...props} onLoginSuccess={this.onLoginSuccess.bind(this)} />
-                            : <Redirect to="/vip" /> //fixed issue where if currentUser typed in /login in URL bar, they would be able to go to that page. Set it up like this to prevent them from accessing that page to avoid any potential "double login" issues.
+                            : <Redirect to="/myreport" /> //fixed issue where if currentUser typed in /login in URL bar, they would be able to go to that page. Set it up like this to prevent them from accessing that page to avoid any potential "double login" issues.
                     }} />
 
                     <Route path="/logout" render={(props) => {
@@ -48,12 +48,12 @@ class App extends React.Component {
                     <Route path="/signup" render={(props) => {
                         return !currentUser
                         ? <SignUp {...props} onSignUpSuccess={this.onLoginSuccess.bind(this)} />
-                        : <Redirect to="/vip" /> //fixed issue where if currentUser typed in /signup in URL bar, they would be able to go to that page. Set it up like this to prevent them from accessing that page to avoid any potential "double sign up" issues.
+                        : <Redirect to="/myreport" /> //fixed issue where if currentUser typed in /signup in URL bar, they would be able to go to that page. Set it up like this to prevent them from accessing that page to avoid any potential "double sign up" issues.
                     }} />
 
-                    <Route path="/vip" render={() => {
+                    <Route path="/myreport" render={() => {
                         return currentUser
-                            ? <VIP />
+                            ? <MyReport />
                             : <Redirect to="/login" />
                     }} />
 
