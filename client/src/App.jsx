@@ -44,7 +44,7 @@ class App extends React.Component {
                 <Switch>
                     
                     <Route path="/companies" render={(props) => {
-                        console.log(currentUser) // test current user is coming through
+                        //console.log(currentUser) // test current user is coming through
                         return currentUser
                             ? <Companies />
                             : <Redirect to="/login" />
