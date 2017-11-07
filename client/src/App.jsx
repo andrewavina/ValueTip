@@ -6,8 +6,11 @@ import NavBar from './NavBar'
 import LogIn from './views/LogIn'
 import LogOut from './views/LogOut'
 import SignUp from './views/SignUp'
+import Companies from './views/Companies'
 import MyReport from './views/MyReport'
 import Home from './views/Home'
+
+
 
 class App extends React.Component {
     state = { currentUser: null }
@@ -34,6 +37,12 @@ class App extends React.Component {
 
                 <Switch>
 
+                <Route path="/companies" render={() => {
+                        return currentUser
+                            ? <Companies />
+                            : <Redirect to="/login" />
+                    }} />
+
                     <Route path="/login" render={(props) => {
                         return !currentUser
                             ? <LogIn {...props} onLoginSuccess={this.onLoginSuccess.bind(this)} />
@@ -51,11 +60,15 @@ class App extends React.Component {
                         : <Redirect to="/myreport" /> //fixed issue where if currentUser typed in /signup in URL bar, they would be able to go to that page. Set it up like this to prevent them from accessing that page to avoid any potential "double sign up" issues.
                     }} />
 
+                    
+                    
                     <Route path="/myreport" render={() => {
                         return currentUser
                             ? <MyReport />
                             : <Redirect to="/login" />
                     }} />
+
+                   
 
                     <Route path="/" component={Home} />
 

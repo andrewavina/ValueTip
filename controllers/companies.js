@@ -8,6 +8,7 @@ module.exports = {
     //list all companies
     index: (req, res) => {
         Company.find({}, (err, companies) => {
+            if(err){console.log(err)}
             res.json(companies)
         })
     }
