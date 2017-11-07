@@ -14,6 +14,10 @@ import Home from './views/Home'
 
 class App extends React.Component {
     state = { currentUser: null }
+    //order of below functions doesn't matter before render()...
+    componentWillMount() {
+        this.setState({ currentUser: clientAuth.getCurrentUser() })
+    }
 
     componentDidMount() {
         this.setState({ currentUser: clientAuth.getCurrentUser() })
@@ -33,11 +37,12 @@ class App extends React.Component {
         return (
             <div className='App'>
                 
-                <NavBar currentUser={currentUser} />
+                <NavBar currentUser={this.state.currentUser} />
 
                 <Switch>
 
-                <Route path="/companies" render={() => {
+                    <Route path="/companies" render={(props) => {
+                        // console.log(currentUser)
                         return currentUser
                             ? <Companies />
                             : <Redirect to="/login" />
@@ -62,7 +67,7 @@ class App extends React.Component {
 
                     
                     
-                    <Route path="/myreport" render={() => {
+                    <Route path="/myreport" render={(props) => {
                         return currentUser
                             ? <MyReport />
                             : <Redirect to="/login" />
