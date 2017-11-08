@@ -1,5 +1,4 @@
 import React from 'react'
-import clientAuth from '../clientAuth'
 
 const Settings = (props) => {
     return (

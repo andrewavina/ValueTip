@@ -11,6 +11,7 @@ import MyReport from './views/MyReport'
 import Home from './views/Home'
 import Settings from './views/Settings'
 import DeleteUser from './views/DeleteUser'
+import DeleteUserConfirm from './views/DeleteUserConfirm'
 
 
 
@@ -36,6 +37,11 @@ class App extends React.Component {
         this.setState({ currentUser: null })
     }
 
+    deleteUser() {
+        clientAuth.logOut()
+        this.setState({ currentUser: null })
+    }
+
     render() {
         const { currentUser } = this.state
         return (
@@ -44,6 +50,10 @@ class App extends React.Component {
                 <NavBar currentUser={this.state.currentUser} />
 
                 <Switch>
+                    
+                    <Route path="/deleteuserconfirm" render={(props) => {
+                        return <DeleteUserConfirm onDeleteUserConfirm={this.deleteUser.bind(this)} />
+                    }} />
                     
                     <Route path="/deleteuser" render={(props) => {
                         //console.log(currentUser) // test current user is coming through
