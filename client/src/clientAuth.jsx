@@ -48,6 +48,14 @@ function signUp(userInfo) {
         })
 }
 
+function editUser(currentUser){
+    const token = getToken()
+    return clientAuth({ method: 'patch', url: `/api/users/${currentUser._id}`, data: token, currentUser })
+        .then(res => {
+            return {message: "success"}
+        })
+}
+
 function logOut() {
     localStorage.removeItem('token')
     delete clientAuth.defaults.headers.common.token
@@ -56,7 +64,7 @@ function logOut() {
 
 function deleteUser(currentUser) {
     const token = getToken() //works
-    clientAuth({ method: 'delete', url: `/api/users/${currentUser._id}`, data: token, currentUser})
+    clientAuth({ method: 'delete', url: `/api/users/${currentUser._id}`, data: token, currentUser })
         .then(res => {
             //send request to delete route...that should delete user
             console.log("Deleted User Successfully")
@@ -72,5 +80,6 @@ export default {
     logIn,
     signUp,
     logOut,
-    deleteUser
+    deleteUser,
+    editUser
 }

@@ -37,9 +37,14 @@ class App extends React.Component {
         this.setState({ currentUser: null })
     }
 
-    deleteUser() { // delete user happens here
+    deleteUser() { 
         clientAuth.deleteUser(this.state.currentUser)
         this.setState({ currentUser: null })
+        console.log("worked")
+    }
+
+    editUser() { 
+        clientAuth.editUser(this.state.currentUser)
         console.log("worked")
     }
 
@@ -66,7 +71,7 @@ class App extends React.Component {
                     <Route path="/settings" render={(props) => {
                         //console.log(currentUser) // test current user is coming through
                         return currentUser
-                            ? <Settings />
+                            ? <Settings {...props} onEditSuccess={this.editUser.bind(this)} currentUser={currentUser}/>
                             : <Redirect to="/login" />
                     }} />
                     
