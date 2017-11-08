@@ -6,9 +6,9 @@ class MyReport extends React.Component {
     state = {
         newCompanyTitle: '', 
         stocklist: [
-            { company: "ABC", _id: "293023" },
-            { company: "CBS", _id: "123211" },
-            { company: "NBC", _id: "423232" }            
+            { company: "ABC", ticker: "A", price: 34, _id: "293023" },
+            { company: "CBS", ticker: "C", price: 183, _id: "123211" },
+            { company: "NBC", ticker: "N", price: 8, _id: "423232" }            
         ]
     }
 

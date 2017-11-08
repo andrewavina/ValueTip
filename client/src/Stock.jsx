@@ -5,8 +5,12 @@ const Item = (props) => {
 
     return(
         <li>
-            {item.company}
+            Company: {item.company}
             <button onClick={() => {onRemoveClick(item._id)}}>Remove</button>
+            <ul>
+                <li>Ticker: {item.ticker}</li>
+                <li>Price: {item.price}</li>
+            </ul>
         </li>
     )
 }
