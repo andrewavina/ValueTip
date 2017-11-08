@@ -1,31 +1,96 @@
 import React from 'react';
-import Autosuggest from 'react-autosuggest';
+import Item from '../Stock';
+//import Autosuggest from 'react-autosuggest';
 
+class MyReport extends React.Component {
+    state = {
+        newCompanyTitle: '', 
+        stocklist: [
+            { company: "ABC", _id: "293023" },
+            { company: "CBS", _id: "123211" },
+            { company: "NBC", _id: "423232" }            
+        ]
+    }
+
+    onFormSubmit(evt) {
+        console.log("Submitting form...")
+        evt.preventDefault()
+        this.setState({
+            newItemTitle: '',
+            stocklist: [
+                ...this.state.stocklist,
+                { company: this.state.newItemTitle, _id: Math.random() * 10000 }
+            ]
+        })
+    }
+
+    // use bind(this) in render() function to tell react to access function
+    onInputChange(evt){
+        this.setState({newItemTitle: evt.target.value})
+    }
+
+    onRemoveClick(id){
+        console.log("removing an item...")
+        console.log(id)
+        this.setState({
+            stocklist: this.state.stocklist.filter((item) => {
+                return item._id !== id
+            }) //filter is similar to map. Only items that include truthy will be included in new array
+        })
+    }
+
+    render() {
+        return (
+            <div className="MyReport">
+                <h1>My Report</h1>
+
+                <h2>Company Search:</h2>
+                <form onSubmit={this.onFormSubmit.bind(this)}>
+                    <input type="text" 
+                        value={this.state.newItemTitle}
+                        onChange={this.onInputChange.bind(this)}
+                     />
+                    <button>Add Stock</button>
+                </form>
+
+                <h2>Saved Stocks:</h2>
+                <ul>
+                    {this.state.stocklist.map((item) => { 
+                        return (
+                            <Item 
+                                key={item._id}
+                                item={item}
+                                onRemoveClick={this.onRemoveClick.bind(this)}
+                            />
+                        )
+                    })}
+                </ul>
+            </div>
+        )
+    }
+    
+} // last bracket
+
+/*
 // Imagine you have a list of languages that you'd like to autosuggest.
 const languages = [
   {
-    name: 'ABC',
-    year: 1972
+    name: 'ABC'
   },
   {
-    name: 'CBS',
-    year: 2012
+    name: 'CBS'
   },
   {
-    name: 'NBC',
-    year: 2012
+    name: 'NBC'
   },
   {
-    name: 'NBdfadfC',
-    year: 2012
+    name: 'NBdfadfC'
   },
   {
-    name: 'NdafdfaBC',
-    year: 2012
+    name: 'NdafdfaBC'
   },
   {
-    name: 'NrergarBC',
-    year: 2012
+    name: 'NrergarBC'
   }
 ];
 
@@ -101,6 +166,7 @@ class MyReport extends React.Component {
     return (
       <div>
         <h1>My Report</h1>
+        <p>this is autosuggest:</p>
         <Autosuggest
             suggestions={suggestions}
             onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
@@ -109,6 +175,11 @@ class MyReport extends React.Component {
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
         />
+        <hr/>
+        <p>this is my custom form:</p>
+        <form action="">
+            <input type="text" name="company" placeholder="company"/>
+        </form>
         <br/>
             <h2>Saved Stocks</h2>
             <div className='savedStocks'>
@@ -118,5 +189,5 @@ class MyReport extends React.Component {
     );
   }
 }
-
+*/
 export default MyReport
