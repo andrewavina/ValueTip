@@ -17,14 +17,15 @@ class Settings extends React.Component {
 
     onFormSubmit(evt) {
         evt.preventDefault()
-        console.log(this.props.currentUser)
+        //console.log(this.props.currentUser) //testing
         clientAuth.editUser(this.props.currentUser).then(res => {
-            console.log(res.message)
-            // this.setState({ fields: { password: '' } })
-            // if(user) {
-            //     this.props.onEditSuccess(user)
-            //     this.props.history.push('/myreport')
-            // }
+            console.log(res)   //testing                 
+            this.setState({ fields: { password: '' } })
+            if(res.password) {
+                this.props.onEditSuccess(res.password)
+                this.props.history.push('/myreport')
+                console.log(res.message)
+            }
         })
     }
 

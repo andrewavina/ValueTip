@@ -52,7 +52,14 @@ function editUser(currentUser){
     const token = getToken()
     return clientAuth({ method: 'patch', url: `/api/users/${currentUser._id}`, data: token, currentUser })
         .then(res => {
-            return {message: "success"}
+            const token = res.data.token
+            if(token) {
+                clientAuth.defaults.headers.common.token = setToken(token)
+                return jwtDecode(token)
+                return {message: "success"}
+            } else {
+                return false
+            }
         })
 }
 
