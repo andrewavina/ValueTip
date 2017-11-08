@@ -9,7 +9,7 @@ class Companies extends React.Component {
     }
     
     render() {
-        console.log(this.state.companies)
+        //console.log(this.state.companies)
         return(
         <div className='companies'> 
             <h1>Company Stocks</h1>

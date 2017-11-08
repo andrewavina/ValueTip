@@ -1,5 +1,7 @@
 import React from 'react';
-import Item from '../Stock';
+import Item from './Stock';
+// import Search from './Search';
+
 //import Autosuggest from 'react-autosuggest';
 
 class MyReport extends React.Component {
@@ -12,6 +14,7 @@ class MyReport extends React.Component {
         ]
     }
 
+  
     onFormSubmit(evt) {
         console.log("Submitting form...")
         evt.preventDefault()
@@ -29,6 +32,7 @@ class MyReport extends React.Component {
         this.setState({newItemTitle: evt.target.value})
     }
 
+
     onRemoveClick(id){
         console.log("removing an item...")
         console.log(id)
@@ -45,15 +49,17 @@ class MyReport extends React.Component {
                 <h1>My Report</h1>
 
                 <h2>Company Search:</h2>
-                <form onSubmit={this.onFormSubmit.bind(this)}>
+               <form onSubmit={this.onFormSubmit.bind(this)}>
                     <input type="text" 
                         value={this.state.newItemTitle}
                         onChange={this.onInputChange.bind(this)}
                      />
                     <button>Add Stock</button>
                 </form>
+                {/* <Search /> */}
 
                 <h2>Saved Stocks:</h2>
+
                 <ul>
                     {this.state.stocklist.map((item) => { 
                         return (
