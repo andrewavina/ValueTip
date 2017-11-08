@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 
 class DeleteUserConfirm extends React.Component {
 
-    componentDidMount(props) {
+    componentDidMount() {
             this.props.onDeleteUserConfirm()
         }
 

@@ -1,8 +1,9 @@
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 
-const clientAuth = axios.create()
-clientAuth.defaults.headers.common.token = getToken()
+const 
+    clientAuth = axios.create()
+    clientAuth.defaults.headers.common.token = getToken()
 
 function getToken() {
     return localStorage.getItem('token')
@@ -23,6 +24,7 @@ function logIn(credentials) {
     return clientAuth({ method: 'post', url: '/api/users/authenticate', data: credentials })
         .then(res => {
             const token = res.data.token
+            console.log(getCurrentUser())
             if(token) {
                 clientAuth.defaults.headers.common.token = setToken(token)
                 return jwtDecode(token)
@@ -52,12 +54,23 @@ function logOut() {
     return true
 }
 
-
-
+function deleteUser(currentUser) {
+    const token = getToken() //works
+    clientAuth({ method: 'delete', url: `/api/users/${currentUser._id}`, data: token, currentUser})
+        .then(res => {
+            //send request to delete route...that should delete user
+            console.log("Deleted User Successfully")
+            //kill token (also doing in View view redirect)
+            localStorage.removeItem('token')
+            delete clientAuth.defaults.headers.common.token
+            return true
+        })
+}
 
 export default {
     getCurrentUser,
     logIn,
     signUp,
-    logOut
+    logOut,
+    deleteUser
 }

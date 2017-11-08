@@ -38,7 +38,7 @@ class App extends React.Component {
     }
 
     deleteUser() { // delete user happens here
-        clientAuth.logOut()
+        clientAuth.deleteUser(this.state.currentUser)
         this.setState({ currentUser: null })
         console.log("worked")
     }
@@ -53,7 +53,7 @@ class App extends React.Component {
                 <Switch>
                     
                     <Route path="/deleteuserconfirm" render={(props) => {
-                        return <DeleteUserConfirm onDeleteUserConfirm={this.deleteUser.bind(this)} />
+                        return <DeleteUserConfirm {...props} onDeleteUserConfirm={this.deleteUser.bind(this)} />
                     }} />
                     
                     <Route path="/deleteuser" render={(props) => {
