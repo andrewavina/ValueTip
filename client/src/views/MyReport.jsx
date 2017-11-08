@@ -109,27 +109,14 @@ class MyReport extends React.Component {
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
         />
+        <br/>
+            <h2>Saved Stocks</h2>
+            <div className='savedStocks'>
+
+            </div>
       </div>
     );
   }
 }
 
-
-
-/*
-const MyReport = (props) => {
-    return (
-        <div className='myReport'>
-            <h1>My Report Page</h1>
-            <br/>
-            <h2>search bar</h2>
-            <br/>
-            <h2>Saved Stocks</h2>
-            <div className='savedStocks'>
-
-            </div>
-        </div>
-    )
-}
-*/
 export default MyReport
