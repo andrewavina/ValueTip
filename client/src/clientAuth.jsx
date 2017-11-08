@@ -52,17 +52,12 @@ function logOut() {
     return true
 }
 
-function deleteUser() {
-    localStorage.removeItem('token')
-    delete clientAuth.defaults.headers.common.token
-    return true
-}
+
 
 
 export default {
     getCurrentUser,
     logIn,
     signUp,
-    logOut,
-    deleteUser
+    logOut
 }

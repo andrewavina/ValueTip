@@ -37,9 +37,10 @@ class App extends React.Component {
         this.setState({ currentUser: null })
     }
 
-    deleteUser() {
+    deleteUser() { // delete user happens here
         clientAuth.logOut()
         this.setState({ currentUser: null })
+        console.log("worked")
     }
 
     render() {
