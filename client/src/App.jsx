@@ -122,7 +122,7 @@ class App extends React.Component {
                     <Route path="/myreport" render={(props) => {
                         // console.log(currentUser) // test current user is coming through
                         return currentUser
-                            ? <MyReport />
+                            ? <MyReport {...props} currentUser={currentUser}/>
                             : <Redirect to="/login" />
                     }} />
 

@@ -22,11 +22,11 @@ class MyReport extends React.Component {
     }
 
     componentDidMount(){
-        this.getEvents()
+        this.getStocks()
     }
 
     render(){
-        console.log(this.props.currentUser.email)
+        console.log(this.props.currentUser)
         return (
             <div className="MyReport">
                 <h1>My Report</h1>
@@ -34,7 +34,7 @@ class MyReport extends React.Component {
                 <hr/>
                 <h2>Saved Stocks</h2>
                     <ul>
-                        {this.state.events.map((stock, index) => {
+                        {this.state.stocks.map((stock, index) => {
                             return (
                                 <li key={stock._id}><Link to={`/show-stock${stock._id}`} key={index}>{stock.name}</Link></li>
                             ) 
