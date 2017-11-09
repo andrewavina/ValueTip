@@ -52,20 +52,21 @@ class MyReport extends React.Component {
 
                 <h2>Company Search:</h2>
                <form onSubmit={this.onFormSubmit.bind(this)}>
-                    <input type="text" 
+                    {/* <input type="text" 
                         value={this.state.search}
                         onChange={this.onInputChange.bind(this)}
-                     />
+                     /> */}
                     <button>Add Stock</button>
                 </form>
 
                 <h2>Saved Stocks:</h2>
+                
                 <ul>
                    {/* placeholder for saved/bookmarked stocks */}
                 </ul>
 
                 {/* Below is test list to render list of stocks just for testing */}
-                <ul>
+                {/* <ul>
                     {this.state.stocklist.map((item) => { 
                         return (
                             <Item 
@@ -75,7 +76,7 @@ class MyReport extends React.Component {
                             />
                         )
                     })}
-                </ul>
+                </ul> */}
             </div>
         )
     }

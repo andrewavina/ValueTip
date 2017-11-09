@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 const NavBar = (props) => {
     return (
         <div className='NavBar'>
-            <Link to="/">Home</Link>
             {props.currentUser
                 ? ( 
                     <span>
@@ -16,6 +15,7 @@ const NavBar = (props) => {
                 )
                 : (
                     <span>
+                        <Link to="/">Home</Link>                        
                         <Link to="/login">Log In</Link>
                         <Link to="/signup">Sign Up</Link>
                     </span>
