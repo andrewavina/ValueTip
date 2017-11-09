@@ -9,7 +9,7 @@ const NavBar = (props) => {
                 ? ( 
                     <span>
                         <Link to="/myreport">My Report</Link>
-                        <Link to="/companies">Companies</Link>
+                        {/* <Link to="/companies">Companies</Link> */}
                         <Link to="/settings">Settings</Link>                                                
                         <Link to="/logout">Log Out</Link>
                     </span>
