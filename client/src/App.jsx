@@ -3,15 +3,16 @@ import { Switch, Route, Redirect} from 'react-router-dom'
 import clientAuth from './clientAuth'
 
 import NavBar from './NavBar'
+import Home from './views/Home'
 import LogIn from './views/LogIn'
 import LogOut from './views/LogOut'
 import SignUp from './views/SignUp'
-import Companies from './views/Companies'
 import MyReport from './views/MyReport'
-import Home from './views/Home'
+// import Companies from './views/Companies'
 import Settings from './views/Settings'
 import DeleteUser from './views/DeleteUser'
 import DeleteUserConfirm from './views/DeleteUserConfirm'
+
 
 
 
@@ -75,12 +76,12 @@ class App extends React.Component {
                             : <Redirect to="/login" />
                     }} />
                     
-                    <Route path="/companies" render={(props) => {
+                    {/* <Route path="/companies" render={(props) => {
                         //console.log(currentUser) // test current user is coming through
                         return currentUser
                             ? <Companies />
                             : <Redirect to="/login" />
-                    }} />
+                    }} /> */}
 
                     <Route path="/login" render={(props) => {
                         return !currentUser
