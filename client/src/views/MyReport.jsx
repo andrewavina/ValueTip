@@ -36,7 +36,7 @@ class MyReport extends React.Component {
                     <ul>
                         {this.state.stocks.map((stock, index) => {
                             return (
-                                <li key={stock._id}><Link to={`/show-stock${stock._id}`} key={index}>{stock.name}</Link></li>
+                                <li key={stock._id}><Link to={`/show-stock/${stock._id}`} key={index}>{stock.name}</Link></li>
                             ) 
                         })}
                     </ul>

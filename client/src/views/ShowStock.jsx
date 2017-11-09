@@ -33,11 +33,13 @@ class ShowStock extends React.Component {
     }
 
     render() {
+        console.log(this.props.currentUser)
         const 
-            userId = this.props.currentUser._id,
-            { name, ticker, price } = this.state.event,
+            // userId = this.props.currentUser._id,
+            // creatorId = this.state.creatorId,
+            { name, ticker, price } = this.state.stock,
             { id } = this.props.match.params
-            
+            // if (userId === creatorId) {
                 return (
                     <div className="ShowStock">
                         <Link to={`/edit-stock/${id}`}>Edit Stock</Link>
@@ -47,6 +49,8 @@ class ShowStock extends React.Component {
                         <h3>Price per Share: {price}</h3>
                     </div>
                 )
+
+            // }
     }
 } //last bracket
 
