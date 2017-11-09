@@ -58,6 +58,7 @@ class App extends React.Component {
 
                 <Switch>
                     
+
                     <Route path="/deleteuserconfirm" render={(props) => {
                         return <DeleteUserConfirm {...props} onDeleteUserConfirm={this.deleteUser.bind(this)} />
                     }} />
