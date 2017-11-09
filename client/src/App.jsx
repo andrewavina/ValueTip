@@ -9,9 +9,14 @@ import LogOut from './views/LogOut'
 import SignUp from './views/SignUp'
 import MyReport from './views/MyReport'
 // import Companies from './views/Companies'
+//Users
 import Settings from './views/Settings'
 import DeleteUser from './views/DeleteUser'
 import DeleteUserConfirm from './views/DeleteUserConfirm'
+//Stocks
+import CreateStock from './views/CreateStock'
+import ShowStock from './views/ShowStock'
+import EditStock from './views/EditStock'
 
 
 
@@ -58,6 +63,19 @@ class App extends React.Component {
 
                 <Switch>
                     
+                    <Route path="/create-stock" render={(props) => {
+                        return currentUser
+                        ? <CreateStock {...props} currentUser={currentUser} />
+                        : <Redirect to="/login" />
+                    }} />
+
+                    <Route path="/show-stock/:id" render={(props) => {
+                        return currentUser
+                        ? <ShowStock {...props} currentUser={currentUser} />
+                        : <Redirect to="/login" />
+                    }} />
+
+                    <Route path="/edit-stock/:id" component={EditStock} />
 
                     <Route path="/deleteuserconfirm" render={(props) => {
                         return <DeleteUserConfirm {...props} onDeleteUserConfirm={this.deleteUser.bind(this)} />
