@@ -11,7 +11,8 @@ class CreateStock extends React.Component {
             earningsStability: '',
             dividendRecord: '',
             earningsGrowth: '',
-            valuePrice: ''
+            valuePrice: '',
+            score: ''
         }
     }
 
@@ -40,7 +41,8 @@ class CreateStock extends React.Component {
                     earningsStability: '',
                     dividendRecord: '',
                     earningsGrowth: '',
-                    valuePrice: ''
+                    valuePrice: '',
+                    score: ''
                 }
             })
             if (event) {
@@ -51,7 +53,7 @@ class CreateStock extends React.Component {
     }
 
     render() {
-        const { name, ticker, price, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice } = this.state.fields
+        const { name, ticker, price, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice, score } = this.state.fields
         return (
             <div className='CreateStock'>
                 <h1>Add A Stock</h1>
@@ -96,6 +98,12 @@ class CreateStock extends React.Component {
                     <div className="form-group">
                         <label>Value Price</label>                                                
                         <input type="text" placeholder="Less than 120% net tangible assets" name="valuePrice" value={valuePrice} className="form-control"/>                    
+                    </div>
+
+                    <h5>Now tally up all the "Yes" entries from above:</h5>
+                    <div className="form-group">
+                        <label>Score</label>                                                
+                        <input type="text" placeholder="Enter number" name="score" value={score} className="form-control"/>                    
                     </div>
 
                     <button type="submit" className="btn btn-primary">Add Stock</button>

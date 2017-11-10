@@ -9,6 +9,7 @@ const
         dividendRecord: { type: String },
         earningsGrowth: { type: String },
         valuePrice: { type: String },
+        score: { type: Number },
         user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
     })
 

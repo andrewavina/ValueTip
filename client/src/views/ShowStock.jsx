@@ -35,7 +35,7 @@ class ShowStock extends React.Component {
     render() {
         console.log(this.props.currentUser)
         const 
-            { name, ticker, price } = this.state.stock,
+            { name, ticker, price, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice, score } = this.state.stock,
             { id } = this.props.match.params
                 return (
                     <div className="ShowStock">
@@ -50,6 +50,16 @@ class ShowStock extends React.Component {
                         <h1>Company Name: {name}</h1>
                         <h3>Stock Ticker: {ticker}</h3>
                         <h3>Price per Share: ${price}</h3>
+                        <hr/>
+                        <h5>Calculation Results:</h5>
+                        <h6>Financial Condition: {financialCondition}</h6>
+                        <h6>Earnings Stability: {earningsStability}</h6>
+                        <h6>Dividend Record: {dividendRecord}</h6>
+                        <h6>Earnings Growth: {earningsGrowth}</h6>
+                        <h6>Value Price: {valuePrice}</h6>
+                        <hr/>
+                        <h3>Score:</h3>
+                        <h3>{score}/5</h3>
                     </div>
                 )
     }
