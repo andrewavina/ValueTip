@@ -35,22 +35,23 @@ class ShowStock extends React.Component {
     render() {
         console.log(this.props.currentUser)
         const 
-            // userId = this.props.currentUser._id,
-            // creatorId = this.state.creatorId,
             { name, ticker, price } = this.state.stock,
             { id } = this.props.match.params
-            // if (userId === creatorId) {
                 return (
                     <div className="ShowStock">
-                        <Link to={`/edit-stock/${id}`}>Edit Stock</Link>
-                        <Link to="/" onClick={this.onDeleteClick.bind(this)}>Delete</Link>
+                        <button className="btn btn-warning">
+                            <Link to={`/edit-stock/${id}`}>Edit Stock</Link>
+                        </button>
+                        
+                        <button className="btn btn-danger">
+                            <Link to="/" onClick={this.onDeleteClick.bind(this)}>Delete</Link>
+                        </button>
+                        
                         <h1>Company Name: {name}</h1>
                         <h3>Stock Ticker: {ticker}</h3>
                         <h3>Price per Share: {price}</h3>
                     </div>
                 )
-
-            // }
     }
 } //last bracket
 
