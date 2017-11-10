@@ -36,15 +36,18 @@ class SignUp extends React.Component {
                 <div className="form-group">
                 <label>Email</label>
                 <input type="text" placeholder="Email" name="email" value={email} className="form-control"/>
-            </div>
+                </div>
             
-            <div className="form-group">
-                <label>Password</label>                        
-                <input type="password" placeholder="Password" name="password" value={password} className="form-control"/>
-            </div>
+                <div className="form-group">
+                    <label>Password</label>                        
+                    <input type="password" placeholder="Password" name="password" value={password} className="form-control"/>
+                </div>
 
-            <button class="btn btn-success">Create Account</button>
+                    <button class="btn btn-success">Create Account</button>
                 </form>
+                <hr className="my-4"/>
+                <label>Already have an account?</label>                                        
+                <a className="btn btn-primary" href="/login" role="button">Log In</a>
             </div>
         )
     }

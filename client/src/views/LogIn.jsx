@@ -44,6 +44,9 @@ class LogIn extends React.Component {
 
                     <button className="btn btn-primary">Log In</button>
                 </form>
+                <hr className="my-4"/>
+                <label>Don't have an account?</label>                                        
+                <a className="btn btn-success" href="signup" role="button">Sign Up</a>
             </div>
         )
     }
