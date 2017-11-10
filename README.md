@@ -6,7 +6,7 @@
 
 ![Imgur](https://i.imgur.com/cavOXsY.png)
 ![Imgur](https://i.imgur.com/UISXQUS.png)
-![Imgur](https://i.imgur.com/NZSvqAD.png)
+![Imgur](https://i.imgur.com/v3qA1gj.png)
 
 ## Tech Used
 * React (created via create-react-app)
