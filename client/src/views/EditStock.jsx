@@ -63,10 +63,22 @@ class EditStock extends React.Component {
             <div className='EditStock'>
                 <h1>Edit Stock</h1>
                 <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
-                    <input type="text" placeholder="Company Name" name="name" value={name} />
-                    <input type="text" placeholder="Stock Ticker" name="ticker" value={ticker} />
-                    <input type="text" placeholder="Price Per Share" name="price" value={price} />                   
-                    <button>Update Stock</button>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Company Name</label>                        
+                        <input type="text" placeholder="company" name="name" value={name} class="form-control"/>
+                    </div>
+
+                    <div class="form-group">                    
+                        <label for="exampleInputEmail1">Stock Ticker</label>
+                        <input type="text" placeholder="ticker" name="ticker" value={ticker} class="form-control"/>
+                    </div>
+
+                    <div class="form-group">                    
+                        <label for="exampleInputEmail1">Price Per Share</label>                        
+                        <input type="text" placeholder="enter number" name="price" value={price} class="form-control"/>                   
+                    </div>
+
+                    <button class="btn btn-success">Update Stock</button>
                 </form>
             </div>
         )

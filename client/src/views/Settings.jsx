@@ -44,17 +44,19 @@ class Settings extends React.Component {
             return (
                 <div className='settings'>
                     <h1>Settings</h1>
-
-                    <h2>Edit Password:</h2>
+                    
                     <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
-                    <input type="password" placeholder="Password" name="password" defaultValue={password} />                                     
-                        <button>Change Password</button>
+                        <div class="form-group">
+                            <label for="exampleInputPassport1">Enter New Password</label>
+                            <input type="password" placeholder="Password" name="password" defaultValue={password} class="form-control"/>                                     
+                        </div>
+                        <button class="btn btn-primary">Change Password</button>
                     </form>
 
                     <br/>
-                    
+                    <hr/>
                     <h2>Delete Your Account:</h2>                    
-                    <button>
+                    <button class="btn btn-danger">
                         <a href="/deleteuser">Delete Account</a>
                     </button>
                 </div>
