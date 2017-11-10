@@ -4,9 +4,9 @@
 
 <a href="https://murmuring-crag-60865.herokuapp.com/">See application here</a>
 
-![Imgur](https://i.imgur.com/niQWplc.png)
-![Imgur](https://i.imgur.com/09zui5L.png)
-![Imgur](https://i.imgur.com/6KEKoi4.png)
+![Imgur](https://i.imgur.com/cavOXsY.png)
+![Imgur](https://i.imgur.com/ATjbYT7.png)
+![Imgur](https://i.imgur.com/NZSvqAD.png)
 
 ## Tech Used
 * React (created via create-react-app)
@@ -51,7 +51,7 @@
 - Split up features/functionality based off difficulty to implement and user story value (e.g. static component info then API data then programmatic alerting and calculations)
 
 ## Planning Tools
-* <a href="https://trello.com/b/SJFM1xDb/project-4-stock-app">Link to Trello.</a>
+* <a href="https://trello.com/b/SJFM1xDb/project-4-stock-app">Link to Trello</a>
 * <a href="https://docs.google.com/presentation/d/1w4Cp9Vr9NT2aEf9mRD5JfDm3XEbsYh9-oTDFGlNAlBg/edit?usp=sharing">Wireframes</a>
 
 * <a href="https://docs.google.com/presentation/d/1hYqtMqSBdV4slT__i418qjovuvlrFkzdcvPx1NkNj2g/edit?usp=sharing">Models</a>
