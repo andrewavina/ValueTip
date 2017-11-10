@@ -5,7 +5,7 @@
 <a href="https://murmuring-crag-60865.herokuapp.com/">See application here</a>
 
 ![Imgur](https://i.imgur.com/cavOXsY.png)
-![Imgur](https://i.imgur.com/ATjbYT7.png)
+![Imgur](https://i.imgur.com/UISXQUS.png)
 ![Imgur](https://i.imgur.com/NZSvqAD.png)
 
 ## Tech Used
