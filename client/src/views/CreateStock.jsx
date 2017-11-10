@@ -47,17 +47,17 @@ class CreateStock extends React.Component {
                 <h1>Add A Stock</h1>
                 <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
                     <div className="form-group">
-                        <label for="exampleInputEmail1">Company Name</label>
+                        <label >Company Name</label>
                         <input type="text" placeholder="company" name="name" value={name} className="form-control" />
                     </div>
                     
                     <div className="form-group">
-                        <label for="exampleInputEmail1">Stock Ticker</label>                        
+                        <label >Stock Ticker</label>                        
                         <input type="text" placeholder="ticker" name="ticker" value={ticker} className="form-control"/>
                     </div>
 
                     <div className="form-group">
-                        <label for="exampleInputEmail1">Price Per Share</label>                                                
+                        <label >Price Per Share</label>                                                
                         <input type="text" placeholder="enter number" name="price" value={price} className="form-control"/>                    
                     </div>
 
