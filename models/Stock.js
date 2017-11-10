@@ -4,6 +4,11 @@ const
         name: { type: String, required: true },
         ticker: { type: String, required: true },
         price: { type: Number, required: true },
+        financialCondition: { type: String },
+        earningsStability: { type: String },
+        dividendRecord: { type: String },
+        earningsGrowth: { type: String },
+        valuePrice: { type: String },
         user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
     })
 

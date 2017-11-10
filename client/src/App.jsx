@@ -95,13 +95,6 @@ class App extends React.Component {
                             ? <Settings {...props} onEditSuccess={this.editUser.bind(this)} currentUser={currentUser}/>
                             : <Redirect to="/login" />
                     }} />
-                    
-                    {/* <Route path="/companies" render={(props) => {
-                        //console.log(currentUser) // test current user is coming through
-                        return currentUser
-                            ? <Companies />
-                            : <Redirect to="/login" />
-                    }} /> */}
 
                     <Route path="/login" render={(props) => {
                         return !currentUser
