@@ -32,17 +32,17 @@ class LogIn extends React.Component {
             <div className='LogIn'>
                 <h1>Log in</h1>
                 <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label>Email</label>
-                        <input type="text" placeholder="Email" name="email" value={email} class="form-control"/>
+                        <input type="text" placeholder="Email" name="email" value={email} className="form-control"/>
                     </div>
                     
-                    <div class="form-group">
+                    <div className="form-group">
                         <label>Password</label>                        
-                        <input type="password" placeholder="Password" name="password" value={password} class="form-control"/>
+                        <input type="password" placeholder="Password" name="password" value={password} className="form-control"/>
                     </div>
 
-                    <button class="btn btn-primary">Log In</button>
+                    <button className="btn btn-primary">Log In</button>
                 </form>
             </div>
         )

@@ -46,17 +46,17 @@ class Settings extends React.Component {
                     <h1>Settings</h1>
                     
                     <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label for="exampleInputPassport1">Enter New Password</label>
-                            <input type="password" placeholder="Password" name="password" defaultValue={password} class="form-control"/>                                     
+                            <input type="password" placeholder="Password" name="password" defaultValue={password} className="form-control"/>                                     
                         </div>
-                        <button class="btn btn-primary">Change Password</button>
+                        <button className="btn btn-primary">Change Password</button>
                     </form>
 
                     <br/>
                     <hr/>
                     <h2>Delete Your Account:</h2>                    
-                    <button class="btn btn-danger">
+                    <button className="btn btn-danger">
                         <a href="/deleteuser">Delete Account</a>
                     </button>
                 </div>
