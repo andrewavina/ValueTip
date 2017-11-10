@@ -50,8 +50,9 @@ class EditStock extends React.Component {
                     price: ''
                 }
             })
-            if (res) {
-                this.props.history.push(`/show-stock/${id}`)
+            if (evt) {
+                console.log(evt)
+                this.props.history.push(`/myreport`)
             }
         })
     }
