@@ -73,4 +73,9 @@
 ## Unsolved Problems/Open Items 
 * Edit stock.
 * Integrating 3rd party API to enable users to search for stocks they want to bookmark.
-* Calculations
+* Calculations based off of common value investing principles e.g.:
+    1. Financial Condition: (a) Current assets at least 1 ½ times current liabilities, and (b) debt not more than 110% of net current assets (for industrial companies).
+    2. Earnings stability: No deficit in the last five years covered in the stock guide.
+    3. Dividend record: some current dividend.
+    4. Earnings growth: Last year’s earnings more than those of each over last 3 years.
+    5. Price: Less than 120% net tangible assets.
