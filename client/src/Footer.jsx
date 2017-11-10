@@ -7,9 +7,9 @@ const Footer = (props) => {
             <br/>
             <nav className="navbar navbar-dark bg-dark">
                 <a className="navbar-brand" href="https://github.com/andrewavina" rel="noopener noreferrer" target="_blank">
-                    © andrewavina, 2017
+                    © ValueTip, 2017
                 </a>
-                <a className="navbar-brand" href="https://github.com/andrewavina/stock-app" rel="noopener noreferrer" target="_blank">Github</a>
+                <a className="navbar-brand" href="https://github.com/andrewavina/stock-app" rel="noopener noreferrer" target="_blank">VT-Github</a>
             </nav>
         </div>
     )
