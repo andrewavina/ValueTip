@@ -47,7 +47,7 @@ class Settings extends React.Component {
                     
                     <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
                         <div className="form-group">
-                            <label for="exampleInputPassport1">Enter New Password</label>
+                            <label>Enter New Password</label>
                             <input type="password" placeholder="Password" name="password" defaultValue={password} className="form-control"/>                                     
                         </div>
                         <button className="btn btn-primary">Change Password</button>

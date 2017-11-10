@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 const NavBar = (props) => {
     return (
         <div className='NavBar'>
+            {/* <nav className="navbar fixed-top navbar-dark bg-dark bg-light"> */}
+            <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">            
             {props.currentUser
                 ? ( 
                     <span>
@@ -21,6 +23,7 @@ const NavBar = (props) => {
                     </span>
                 )
             }
+            </nav>
         </div>
     )
 }

@@ -43,7 +43,7 @@ class SignUp extends React.Component {
                     <input type="password" placeholder="Password" name="password" value={password} className="form-control"/>
                 </div>
 
-                    <button class="btn btn-success">Create Account</button>
+                    <button className="btn btn-success">Create Account</button>
                 </form>
                 <hr className="my-4"/>
                 <label>Already have an account?</label>                                        

@@ -3,6 +3,7 @@ import { Switch, Route, Redirect} from 'react-router-dom'
 import clientAuth from './clientAuth'
 
 import NavBar from './NavBar'
+import Footer from './Footer'
 import Home from './views/Home'
 import LogIn from './views/LogIn'
 import LogOut from './views/LogOut'
@@ -129,6 +130,9 @@ class App extends React.Component {
                     <Route path="/" component={Home} />
 
                 </Switch>
+
+                <Footer />
+
             </div>
         )
     }
