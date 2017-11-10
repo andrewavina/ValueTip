@@ -48,20 +48,20 @@ function signUp(userInfo) {
         })
 }
 
-function editUser(currentUser){
-    const token = getToken()
-    return clientAuth({ method: 'patch', url: `/api/users/${currentUser._id}`, data: token, currentUser })
-        .then(res => {
-            const token = res.data.token
-            if(token) {
-                clientAuth.defaults.headers.common.token = setToken(token)
-                return jwtDecode(token)
-                return {message: "success"}
-            } else {
-                return false
-            }
-        })
-}
+// function editUser(currentUser){
+//     const token = getToken()
+//     return clientAuth({ method: 'patch', url: `/api/users/${currentUser._id}`, data: token, currentUser })
+//         .then(res => {
+//             const token = res.data.token
+//             if(token) {
+//                 clientAuth.defaults.headers.common.token = setToken(token)
+//                 return jwtDecode(token)
+//                 return {message: "success"}
+//             } else {
+//                 return false
+//             }
+//         })
+// }
 
 function logOut() {
     localStorage.removeItem('token')
@@ -87,6 +87,6 @@ export default {
     logIn,
     signUp,
     logOut,
-    deleteUser,
-    editUser
+    deleteUser
+    // editUser
 }

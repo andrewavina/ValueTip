@@ -1,12 +1,18 @@
 import React from 'react'
-import clientAuth from '../clientAuth'
+import axios from 'axios'
 
 class Settings extends React.Component {
-    state = {
-        fields: { password: ''}
+    constructor(props){
+        super(props)
+        this.state = {
+            fields: {
+                email: props.currentUser.email,
+                password: props.currentUser.password
+            }
+        }
     }
 
-    onInputChange(evt) {
+    onInputChange(evt){
         this.setState({
             fields: {
                 ...this.state.fields,
@@ -15,17 +21,21 @@ class Settings extends React.Component {
         })
     }
 
-    onFormSubmit(evt) {
+    onFormSubmit(evt){
         evt.preventDefault()
-        //console.log(this.props.currentUser) //testing
-        clientAuth.editUser(this.props.currentUser).then(res => {
-            console.log(res)   //testing                 
-            this.setState({ fields: { password: '' } })
-            if(res.password) {
-                this.props.onEditSuccess(res.password)
-                this.props.history.push('/myreport')
-                console.log(res.message)
-            }
+        axios({
+            method: 'patch',
+            url: `/api/users/${this.props.currentUser._id}`,
+            data: this.state.fields
+        }).then((user) => {
+            this.setState({
+                fields: {
+                    password: ''
+                }
+            })
+            if (user) 
+                 console.log(user)
+                 this.props.history.push('/myreport')
         })
     }
 
@@ -37,7 +47,7 @@ class Settings extends React.Component {
 
                     <h2>Edit Password:</h2>
                     <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
-                    <input type="password" placeholder="Password" name="password" value={password} />                                     
+                    <input type="password" placeholder="Password" name="password" defaultValue={password} />                                     
                         <button>Change Password</button>
                     </form>
 
@@ -50,6 +60,6 @@ class Settings extends React.Component {
                 </div>
             )
     }
-}
+} // last bracket
 
 export default Settings
