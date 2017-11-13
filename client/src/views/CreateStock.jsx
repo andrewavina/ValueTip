@@ -26,7 +26,16 @@ class CreateStock extends React.Component {
     }
 
     onFormSubmit(evt) {
+        //1 piece
         evt.preventDefault()
+        
+        //would calculations have to be done after submit?
+            // console.log(2+2)
+            //console.log(this.state) //gets data from form entered
+            // console.log(this.state.fields.price) //gets the value of price submitted
+            console.log(this.state.fields.price + 5)
+
+        //3rd piece
         axios({
             method: 'post',
             url: `/api/users/${this.props.currentUser._id}/stocks`,
@@ -46,7 +55,7 @@ class CreateStock extends React.Component {
                 }
             })
             if (event) {
-                console.log(event)
+               // console.log(event)
                 this.props.history.push('/myreport')
             }
         })
@@ -70,7 +79,7 @@ class CreateStock extends React.Component {
 
                     <div className="form-group">
                         <label >Price Per Share</label>                                                
-                        <input type="text" placeholder="enter number" name="price" value={price} className="form-control"/>                    
+                        <input type="number" placeholder="enter number" name="price" value={price} className="form-control"/>                    
                     </div>
 
                     <h5>Enter "Yes" or "No" for questions below:</h5>
