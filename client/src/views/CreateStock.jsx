@@ -25,6 +25,7 @@ class CreateStock extends React.Component {
         })
     }
 
+    
     onFormSubmit(evt) {
         //1 piece
         evt.preventDefault()
@@ -33,7 +34,7 @@ class CreateStock extends React.Component {
             // console.log(2+2)
             //console.log(this.state) //gets data from form entered
             // console.log(this.state.fields.price) //gets the value of price submitted
-            console.log(this.state.fields.price + 5)
+        console.log(Math.add())
 
         //3rd piece
         axios({
