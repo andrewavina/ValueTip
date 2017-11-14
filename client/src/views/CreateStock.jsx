@@ -34,7 +34,7 @@ class CreateStock extends React.Component {
             // console.log(2+2)
             //console.log(this.state) //gets data from form entered
             // console.log(this.state.fields.price) //gets the value of price submitted
-        console.log(Math.add())
+   
 
         //3rd piece
         axios({
@@ -84,13 +84,29 @@ class CreateStock extends React.Component {
                     </div>
 
                     <h5>Enter "Yes" or "No" for questions below:</h5>
+            {/* TEST HERE vvvvvvvv*/}
+                    {/* 1st input */}
+                    <div className="form-group">
+                        <label>current liabilities</label>                                                
+                        <input type="number" placeholder="number" name="currentLiabilities" className="form-control"/>                    
+                    </div>
+                    
+                    {/* 2nd input */}
+                    <div className="form-group">
+                        <label>current assets</label>                                                
+                        <input type="number" placeholder="number" name="currentAssets" className="form-control"/>                    
+                    </div>
 
+                    {/* TOTAL */}
                     <div className="form-group">
                         <label>Financial Condition</label>                                                
                         <input type="text" placeholder="(a) Current assets at least 1 ½ times current liabilities, and (b) debt not more than 110% of net current assets (for industrial companies)" name="financialCondition" value={financialCondition} className="form-control"/>                    
                     </div>
 
-                    <div className="form-group">
+            {/* TEST HERE ^^^^^ */}
+            
+            {/* commenting out the bottom now for testing */}
+                    {/* <div className="form-group">
                         <label>Earnings Stability</label>                                                
                         <input type="text" placeholder="No deficit in the last five years covered in the stock guide" name="earningsStability" value={earningsStability} className="form-control"/>                    
                     </div>
@@ -114,7 +130,7 @@ class CreateStock extends React.Component {
                     <div className="form-group">
                         <label>Score</label>                                                
                         <input type="text" placeholder="Enter number" name="score" value={score} className="form-control"/>                    
-                    </div>
+                    </div> */}
 
                     <button type="submit" className="btn btn-primary">Add Stock</button>
 
