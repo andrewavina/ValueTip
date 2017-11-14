@@ -13,7 +13,8 @@ class CreateStock extends React.Component {
             earningsGrowth: '',
             valuePrice: '',
             score: '',
-
+            currentAssets: '',
+            currentLiabilities: ''
         }
     }
 
@@ -31,14 +32,22 @@ class CreateStock extends React.Component {
         //1 piece
         evt.preventDefault()
         
-        //would calculations have to be done after submit?
-            // console.log(2+2)
-            //console.log(this.state) //gets data from form entered
-            // console.log(this.state.fields.price) //gets the value of price submitted
-            var price = Number(this.state.fields.price)
-            var add = Number(this.state.fields.valuePrice)
-            var total = price + add
-            console.log(total)
+        //CALCULATIONS
+            //need to turn values into Numbers since they are strings they don't caluclate. Use Number(). Works with decimals as well.
+            //EXAMPLE    
+                // var price = Number(this.state.fields.price)
+                // var add = Number(this.state.fields.valuePrice)
+                // var total = price + add
+                // console.log(total)
+            var l = Number(this.state.fields.currentLiabilities)
+            var a = Number(this.state.fields.currentAssets)
+            var multiplier = l * l //works
+            var outcome = function(){
+                if (a > multiplier){
+                    console.log("yes")
+                } else {console.log("no")}
+            }
+            outcome()
           
         //3rd piece
         axios({
@@ -56,7 +65,9 @@ class CreateStock extends React.Component {
                     dividendRecord: '',
                     earningsGrowth: '',
                     valuePrice: '',
-                    score: ''
+                    score: '',
+                    currentAssets: '',
+                    currentLiabilities: ''
                 }
             })
             if (event) {
@@ -68,7 +79,7 @@ class CreateStock extends React.Component {
 
     render() {
         // console.log(this.state.fields.currentAssets + this.state.fields.currentLiabilities)        
-        const { name, ticker, price, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice, score } = this.state.fields
+        const { name, ticker, price, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice, score, currentAssets, currentLiabilities } = this.state.fields
        
         return (
             <div className='CreateStock'>
@@ -89,29 +100,24 @@ class CreateStock extends React.Component {
                         <input type="number" placeholder="enter number" name="price" value={price} className="form-control"/>                    
                     </div>
 
-                    <div className="form-group">
-                        <label>Value Price</label>                                                
-                        <input type="number" placeholder="Less than 120% net tangible assets" name="valuePrice" value={valuePrice} className="form-control"/>                    
-                    </div>
-
                     <h5>Calculations</h5>
             {/* TEST HERE vvvvvvvv*/}
                     <p>#1 - (a) Current assets at least 1 ½ times current liabilities, and (b) debt not more than 110% of net current assets (for industrial companies)</p>
                     {/* 1st input */}
                     <div className="">
                         <label> Are current assets: </label>                                                
-                        <input type="number" placeholder="input number" name="currentAssets" className=""/>                                      
+                        <input type="number" placeholder="input number" name="currentAssets" value={currentAssets} className=""/>                                      
                     
                     {/* 2nd input */}
                    
                         <label> 1.5X greater than current liabilities: </label>                                                
-                        <input type="number" placeholder="input number" name="currentLiabilities" className=""/>                    
+                        <input type="number" placeholder="input number" name="currentLiabilities" value={currentLiabilities} className=""/>                    
                         <label> ? </label>                                                
                        
 
                     {/* TOTAL */}
                         <label> Auto-calculation of 1.5 X current liabilities: </label>                                                
-                        <input type="number" placeholder="auto-calculate number" name="currentLiabilities" className=""/>                    
+                        <input type="number" placeholder="auto-calculate number" name="question1total" className=""/>                    
                         <label> ? </label>
                     </div>
 
