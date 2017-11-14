@@ -76,6 +76,11 @@ class CreateStock extends React.Component {
                     <h5>Enter "Yes" or "No" for questions below:</h5>
 
                     <div className="form-group">
+                        <label>Test Input</label>                                                
+                        <input type="text" placeholder="test" name="test" className="form-control"/>                    
+                    </div>
+
+                    <div className="form-group">
                         <label>Financial Condition</label>                                                
                         <input type="text" placeholder="(a) Current assets at least 1 ½ times current liabilities, and (b) debt not more than 110% of net current assets (for industrial companies)" name="financialCondition" value={financialCondition} className="form-control"/>                    
                     </div>
