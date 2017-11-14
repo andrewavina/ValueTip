@@ -35,7 +35,11 @@ class CreateStock extends React.Component {
             // console.log(2+2)
             //console.log(this.state) //gets data from form entered
             // console.log(this.state.fields.price) //gets the value of price submitted
-
+            var price = Number(this.state.fields.price)
+            var add = Number(this.state.fields.valuePrice)
+            var total = price + add
+            console.log(total)
+          
         //3rd piece
         axios({
             method: 'post',
@@ -65,6 +69,7 @@ class CreateStock extends React.Component {
     render() {
         // console.log(this.state.fields.currentAssets + this.state.fields.currentLiabilities)        
         const { name, ticker, price, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice, score } = this.state.fields
+       
         return (
             <div className='CreateStock'>
                 <h1>Add A Stock</h1>
@@ -82,6 +87,11 @@ class CreateStock extends React.Component {
                     <div className="form-group">
                         <label >Price Per Share</label>                                                
                         <input type="number" placeholder="enter number" name="price" value={price} className="form-control"/>                    
+                    </div>
+
+                    <div className="form-group">
+                        <label>Value Price</label>                                                
+                        <input type="number" placeholder="Less than 120% net tangible assets" name="valuePrice" value={valuePrice} className="form-control"/>                    
                     </div>
 
                     <h5>Calculations</h5>
