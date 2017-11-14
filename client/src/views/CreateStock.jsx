@@ -12,7 +12,8 @@ class CreateStock extends React.Component {
             dividendRecord: '',
             earningsGrowth: '',
             valuePrice: '',
-            score: ''
+            score: '',
+
         }
     }
 
@@ -34,7 +35,6 @@ class CreateStock extends React.Component {
             // console.log(2+2)
             //console.log(this.state) //gets data from form entered
             // console.log(this.state.fields.price) //gets the value of price submitted
-   
 
         //3rd piece
         axios({
@@ -63,6 +63,7 @@ class CreateStock extends React.Component {
     }
 
     render() {
+        // console.log(this.state.fields.currentAssets + this.state.fields.currentLiabilities)        
         const { name, ticker, price, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice, score } = this.state.fields
         return (
             <div className='CreateStock'>
@@ -83,24 +84,31 @@ class CreateStock extends React.Component {
                         <input type="number" placeholder="enter number" name="price" value={price} className="form-control"/>                    
                     </div>
 
-                    <h5>Enter "Yes" or "No" for questions below:</h5>
+                    <h5>Calculations</h5>
             {/* TEST HERE vvvvvvvv*/}
+                    <p>#1 - (a) Current assets at least 1 ½ times current liabilities, and (b) debt not more than 110% of net current assets (for industrial companies)</p>
                     {/* 1st input */}
-                    <div className="form-group">
-                        <label>current liabilities</label>                                                
-                        <input type="number" placeholder="number" name="currentLiabilities" className="form-control"/>                    
-                    </div>
+                    <div className="">
+                        <label> Are current assets: </label>                                                
+                        <input type="number" placeholder="input number" name="currentAssets" className=""/>                                      
                     
                     {/* 2nd input */}
-                    <div className="form-group">
-                        <label>current assets</label>                                                
-                        <input type="number" placeholder="number" name="currentAssets" className="form-control"/>                    
-                    </div>
+                   
+                        <label> 1.5X greater than current liabilities: </label>                                                
+                        <input type="number" placeholder="input number" name="currentLiabilities" className=""/>                    
+                        <label> ? </label>                                                
+                       
 
                     {/* TOTAL */}
-                    <div className="form-group">
-                        <label>Financial Condition</label>                                                
-                        <input type="text" placeholder="(a) Current assets at least 1 ½ times current liabilities, and (b) debt not more than 110% of net current assets (for industrial companies)" name="financialCondition" value={financialCondition} className="form-control"/>                    
+                        <label> Auto-calculation of 1.5 X current liabilities: </label>                                                
+                        <input type="number" placeholder="auto-calculate number" name="currentLiabilities" className=""/>                    
+                        <label> ? </label>
+                    </div>
+
+                    {/* Outcome = yes or now */}
+                    <div>
+                        <label>Yes or No? (calculate if CA > 1.5X CL</label>                                                
+                        <input type="text" placeholder="auto yes or no?" name="financialCondition" value={financialCondition} className=""/>                    
                     </div>
 
             {/* TEST HERE ^^^^^ */}
