@@ -39,16 +39,41 @@ class CreateStock extends React.Component {
                 // var add = Number(this.state.fields.valuePrice)
                 // var total = price + add
                 // console.log(total)
-            var l = Number(this.state.fields.currentLiabilities)
-            var a = Number(this.state.fields.currentAssets)
-            var multiplier = l * l //works
-            var outcome = function(){
-                if (a > multiplier){
-                    console.log("yes")
-                } else {console.log("no")}
-            }
-            outcome()
+            //1st calculation question
+            // var l = Number(this.state.fields.currentLiabilities)
+            // var a = Number(this.state.fields.currentAssets)
+            // var multiplier = l * l //works
+            // var outcome = function(financialCondition){
+            //     if (a > multiplier){
+            //         console.log("yes") //test
+            //         var yes = "Yes"
+            //         financialCondition = yes
+            //     } else {
+            //         console.log("no") //test
+            //         var no = "No"
+            //         financialCondition = yes
+            //     }
+            //     //render on screen - currently working on this
+            // }
+            //outcome() - call function here to test
           
+            //function idea:
+                // function(value={financialCondition}){
+                //     var l = Number(this.state.fields.currentLiabilities)
+                //     var a = Number(this.state.fields.currentAssets)
+                //     var multiplier = l * l //works
+                //     if (a > multiplier){
+                //         console.log("yes") //test
+                //         var yes = "Yes"
+                //         value={financialCondition} = yes
+                //     } else {
+                //         console.log("no") //test
+                //         var no = "No"
+                //         value={financialCondition} = yes
+                //     }
+                // }
+
+
         //3rd piece
         axios({
             method: 'post',
@@ -72,7 +97,7 @@ class CreateStock extends React.Component {
             })
             if (event) {
                // console.log(event)
-                this.props.history.push('/myreport')
+                this.props.history.push(`/myreport`)
             }
         })
     }
@@ -102,30 +127,27 @@ class CreateStock extends React.Component {
 
                     <h5>Calculations</h5>
             {/* TEST HERE vvvvvvvv*/}
-                    <p>#1 - (a) Current assets at least 1 ½ times current liabilities, and (b) debt not more than 110% of net current assets (for industrial companies)</p>
+                    <p>#1 - Are current assets at least 1 ½ times current liabilities? </p>
                     {/* 1st input */}
                     <div className="">
-                        <label> Are current assets: </label>                                                
+                        <p>Current assets:</p>                                                
                         <input type="number" placeholder="input number" name="currentAssets" value={currentAssets} className=""/>                                      
                     
                     {/* 2nd input */}
-                   
-                        <label> 1.5X greater than current liabilities: </label>                                                
+                        <p>Current liabilities:</p>
                         <input type="number" placeholder="input number" name="currentLiabilities" value={currentLiabilities} className=""/>                    
                         <label> ? </label>                                                
-                       
 
                     {/* TOTAL */}
-                        <label> Auto-calculation of 1.5 X current liabilities: </label>                                                
+                        <p>Auto-calculation of 1.5 X current liabilities:</p>                                               
                         <input type="number" placeholder="auto-calculate number" name="question1total" className=""/>                    
-                        <label> ? </label>
                     </div>
 
                     {/* Outcome = yes or now */}
-                    <div>
-                        <label>Yes or No? (calculate if CA > 1.5X CL</label>                                                
+                    {/* <div>
+                        <p>Yes or No? (calculate if CA > 1.5X CL</p>                                             
                         <input type="text" placeholder="auto yes or no?" name="financialCondition" value={financialCondition} className=""/>                    
-                    </div>
+                    </div> */}
 
             {/* TEST HERE ^^^^^ */}
             

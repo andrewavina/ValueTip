@@ -39,14 +39,6 @@ class ShowStock extends React.Component {
             { id } = this.props.match.params
                 return (
                     <div className="ShowStock">
-                        <button className="btn btn-warning">
-                            <Link to={`/edit-stock/${id}`}>Edit Stock</Link>
-                        </button>
-                        
-                        <button className="btn btn-danger">
-                            <Link to="/" onClick={this.onDeleteClick.bind(this)}>Delete</Link>
-                        </button>
-                        
                         <h1>Company Name: {name}</h1>
                         <h3>Stock Ticker: {ticker}</h3>
                         <h3>Price per Share: ${price}</h3>
@@ -60,6 +52,14 @@ class ShowStock extends React.Component {
                         <hr/>
                         <h3>Score:</h3>
                         <h3>{score}/5</h3>
+
+                        <button className="btn btn-light">
+                            <Link to={`/edit-stock/${id}`}>Edit Stock</Link>
+                        </button>
+                        
+                        <button className="btn btn-danger">
+                            <Link to="/" onClick={this.onDeleteClick.bind(this)}>Delete</Link>
+                        </button>
                     </div>
                 )
     }
