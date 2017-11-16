@@ -43,7 +43,7 @@ class ShowStock extends React.Component {
                         <h3>Stock Ticker: {ticker}</h3>
                         <h3>Price per Share: ${price}</h3>
                         <hr/>
-                        <h5>Calculation Results:</h5>
+                        <h4>Calculation Results</h4>
                         <h6>Financial Condition: {financialCondition}</h6>
                         <h6>Earnings Stability: {earningsStability}</h6>
                         <h6>Dividend Record: {dividendRecord}</h6>
