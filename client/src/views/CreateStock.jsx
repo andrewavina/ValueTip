@@ -14,7 +14,9 @@ class CreateStock extends React.Component {
             valuePrice: '',
             score: '',
             currentAssets: '',
-            currentLiabilities: ''
+            currentLiabilities: '',
+            currentLiabilitiesX2: '',
+            question1Total: ''
         }
     }
 
@@ -22,7 +24,8 @@ class CreateStock extends React.Component {
         this.setState({
             fields: {
                 ...this.state.fields,
-                [evt.target.name]: evt.target.value
+                [evt.target.name]: evt.target.value,
+
             }
         })
     }
@@ -92,7 +95,9 @@ class CreateStock extends React.Component {
                     valuePrice: '',
                     score: '',
                     currentAssets: '',
-                    currentLiabilities: ''
+                    currentLiabilities: '',
+                    currentLiabilitiesX2: '',
+                    question1Total: ''
                 }
             })
             if (event) {
@@ -104,7 +109,7 @@ class CreateStock extends React.Component {
 
     render() {
         // console.log(this.state.fields.currentAssets + this.state.fields.currentLiabilities)        
-        const { name, ticker, price, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice, score, currentAssets, currentLiabilities } = this.state.fields
+        const { name, ticker, price, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice, score, currentAssets, currentLiabilities, currentLiabilitiesX2, question1Total } = this.state.fields
        
         return (
             <div className='CreateStock'>
@@ -128,19 +133,18 @@ class CreateStock extends React.Component {
                     <h5>Calculations</h5>
             {/* TEST HERE vvvvvvvv*/}
                     <p>#1 - Are current assets at least 1 ½ times current liabilities? </p>
-                    {/* 1st input */}
                     <div className="">
                         <p>Current assets:</p>                                                
-                        <input type="number" placeholder="input number" name="currentAssets" value={currentAssets} className=""/>                                      
-                    
-                    {/* 2nd input */}
+                        <input type="number" placeholder="number" name="currentAssets" value={currentAssets} className=""/>                                      
+               
                         <p>Current liabilities:</p>
-                        <input type="number" placeholder="input number" name="currentLiabilities" value={currentLiabilities} className=""/>                    
-                        <label> ? </label>                                                
+                        <input type="number" placeholder="number" name="currentLiabilities" value={currentLiabilities} className=""/>                    
+                                                                      
+                        <p>1.5 X current liabilities:</p>                                               
+                        <input type="number" placeholder="number" name="currentLiabilitiesX2" value={currentLiabilitiesX2} className=""/>    
 
-                    {/* TOTAL */}
-                        <p>Auto-calculation of 1.5 X current liabilities:</p>                                               
-                        <input type="number" placeholder="auto-calculate number" name="question1total" className=""/>                    
+                        <p>Yes or No:</p>                                               
+                        <input type="number" placeholder="yes or no" name="question1total" value={question1Total} className=""/>                    
                     </div>
 
                     {/* Outcome = yes or now */}
