@@ -78,6 +78,7 @@ class CreateStock extends React.Component {
 
 
         //3rd piece
+
         axios({
             method: 'post',
             url: `/api/users/${this.props.currentUser._id}/stocks`,
@@ -88,7 +89,7 @@ class CreateStock extends React.Component {
                     name: '',
                     ticker: '', 
                     price: '',
-                    financialCondition: '',
+                    financialCondition: Number(currentAssets) + Number(currentLiabilities),
                     earningsStability: '',
                     dividendRecord: '',
                     earningsGrowth: '',
@@ -135,10 +136,10 @@ class CreateStock extends React.Component {
                     <p>#1 - Are current assets at least 1 ½ times current liabilities? </p>
                     <div className="">
                         <p>Current assets:</p>                                                
-                        <input type="number" placeholder="number" name="currentAssets" value={currentAssets} className=""/>                                      
+                        <input type="number" refs="num1" placeholder="number" name="currentAssets" value={currentAssets} className=""/>                                      
                
                         <p>Current liabilities:</p>
-                        <input type="number" placeholder="number" name="currentLiabilities" value={currentLiabilities} className=""/>                    
+                        <input type="number" refs="num2" placeholder="number" name="currentLiabilities" value={currentLiabilities} className=""/>                    
                                                                       
                         <p>1.5 X current liabilities:</p>                                               
                         <input type="number" placeholder="number" name="currentLiabilitiesX2" value={currentLiabilitiesX2} className=""/>    
