@@ -22,6 +22,7 @@ module.exports = {
     create: (req, res) => {
         var newStock = new Stock(req.body)
         newStock.user = req.params.id
+        console.log("test")
         newStock.save((err, stock) => {
             if (err) return res.json({success: false, message: "Failed to create stock"})
             res.json({success: true, message: "Stock Added", stock})
