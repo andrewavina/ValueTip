@@ -134,7 +134,7 @@ class CreateStock extends React.Component {
                     <h5>Calculations</h5>
             {/* TEST HERE vvvvvvvv*/}
                     
-                    {/* <p>#1 - Are current assets at least 1 ½ times current liabilities? </p>
+                    <p>#1 - Are current assets at least 1 ½ times current liabilities? </p>
                     <div className="">
                         <p>Current assets:</p>                                                
                         <input type="number" refs="num1" placeholder="number" name="currentAssets" value={currentAssets} className=""/>                                      
@@ -147,7 +147,7 @@ class CreateStock extends React.Component {
 
                         <p>Yes or No:</p>                                               
                         <input type="number" placeholder="yes or no" name="question1total" value={question1Total} className=""/>                    
-                    </div> */}
+                    </div>
 
                     {/* Outcome = yes or now */}
                     <div>
