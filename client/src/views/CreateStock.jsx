@@ -7,7 +7,6 @@ class CreateStock extends React.Component {
             name: '',
             ticker: '', 
             price: '',
-            financialCondition: '',
             earningsStability: '',
             dividendRecord: '',
             earningsGrowth: '',
@@ -89,7 +88,6 @@ class CreateStock extends React.Component {
                     name: '',
                     ticker: '', 
                     price: '',
-                    financialCondition: '',
                     earningsStability: '',
                     dividendRecord: '',
                     earningsGrowth: '',
@@ -109,8 +107,7 @@ class CreateStock extends React.Component {
     }
 
     render() {
-        // console.log(this.state.fields.currentAssets + this.state.fields.currentLiabilities)        
-        const { name, ticker, price, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice, score, currentAssets, currentLiabilities, currentLiabilitiesX2, question1Total } = this.state.fields
+        const { name, ticker, price, earningsStability, dividendRecord, earningsGrowth, valuePrice, score, currentAssets, currentLiabilities, currentLiabilitiesX2, question1Total } = this.state.fields
        
         return (
             <div className='CreateStock'>
@@ -137,10 +134,10 @@ class CreateStock extends React.Component {
                     <p>#1 - Are current assets at least 1 ½ times current liabilities? </p>
                     <div className="">
                         <p>Current assets:</p>                                                
-                        <input type="number" refs="num1" placeholder="number" name="currentAssets" value={currentAssets} className=""/>                                      
+                        <input type="number" placeholder="number" name="currentAssets" value={currentAssets} className=""/>                                      
                
                         <p>Current liabilities:</p>
-                        <input type="number" refs="num2" placeholder="number" name="currentLiabilities" value={currentLiabilities} className=""/>                    
+                        <input type="number" placeholder="number" name="currentLiabilities" value={currentLiabilities} className=""/>                    
                                                                       
                         {/* <p>1.5 X current liabilities:</p>                                               
                         <input type="number" placeholder="number" name="currentLiabilitiesX2" value={currentLiabilitiesX2} className=""/>     */}
@@ -148,6 +145,7 @@ class CreateStock extends React.Component {
                         {/* <p>Yes or No:</p>                                               
                         <input type="number" placeholder="yes or no" name="question1total" value={question1Total} className=""/>                     */}
                     </div>
+
 
             {/* TEST HERE ^^^^^ */}
             

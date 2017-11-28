@@ -4,7 +4,9 @@ const
         name: { type: String, required: true },
         ticker: { type: String, required: true },
         price: { type: Number, required: true },
-        financialCondition: { type: String },
+        currentAssets: { type: Number },
+        currentLiabilities: { type: Number },
+        financialCondition: { type: Number },
         earningsStability: { type: String },
         dividendRecord: { type: String },
         earningsGrowth: { type: String },
@@ -13,5 +15,9 @@ const
         user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
     })
 
+    //add static method here
+
 const Stock = mongoose.model('Stock', stockSchema)
+//call static method here
+
 module.exports = Stock
