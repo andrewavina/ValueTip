@@ -142,17 +142,11 @@ class CreateStock extends React.Component {
                         <p>Current liabilities:</p>
                         <input type="number" refs="num2" placeholder="number" name="currentLiabilities" value={currentLiabilities} className=""/>                    
                                                                       
-                        <p>1.5 X current liabilities:</p>                                               
-                        <input type="number" placeholder="number" name="currentLiabilitiesX2" value={currentLiabilitiesX2} className=""/>    
+                        {/* <p>1.5 X current liabilities:</p>                                               
+                        <input type="number" placeholder="number" name="currentLiabilitiesX2" value={currentLiabilitiesX2} className=""/>     */}
 
-                        <p>Yes or No:</p>                                               
-                        <input type="number" placeholder="yes or no" name="question1total" value={question1Total} className=""/>                    
-                    </div>
-
-                    {/* Outcome = yes or now */}
-                    <div>
-                        <p>Yes or No? (calculate if CA > 1.5X CL</p>                                             
-                        <input type="text" placeholder="auto yes or no?" name="financialCondition" value={financialCondition} className=""/>                    
+                        {/* <p>Yes or No:</p>                                               
+                        <input type="number" placeholder="yes or no" name="question1total" value={question1Total} className=""/>                     */}
                     </div>
 
             {/* TEST HERE ^^^^^ */}
@@ -183,7 +177,7 @@ class CreateStock extends React.Component {
                         <label>Score</label>                                                
                         <input type="text" placeholder="Enter number" name="score" value={score} className="form-control"/>                    
                     </div> */}
-
+                    <br/>
                     <button type="submit" className="btn btn-primary">Add Stock</button>
 
                 </form> 
