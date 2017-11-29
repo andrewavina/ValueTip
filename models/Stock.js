@@ -6,7 +6,7 @@ const
         price: { type: Number, required: true },
         currentAssets: { type: Number },
         currentLiabilities: { type: Number },
-        financialCondition: { type: Number },
+        financialCondition: {},
         earningsStability: { type: String },
         dividendRecord: { type: String },
         earningsGrowth: { type: String },
@@ -16,8 +16,9 @@ const
     })
 
     //add static method here
+    
 
 const Stock = mongoose.model('Stock', stockSchema)
-//call static method here
+
 
 module.exports = Stock
