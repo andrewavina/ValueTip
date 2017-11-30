@@ -6,7 +6,7 @@ const
         price: { type: Number, required: true },
         currentAssets: { type: Number },
         currentLiabilities: { type: Number },
-        financialCondition: {},
+        financialCondition: { type: Number },
         earningsStability: { type: String },
         dividendRecord: { type: String },
         earningsGrowth: { type: String },
