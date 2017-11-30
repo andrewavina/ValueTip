@@ -1,9 +1,9 @@
 const
     mongoose = require('mongoose'),
     stockSchema = new mongoose.Schema({
-        name: { type: String, required: true },
-        ticker: { type: String, required: true },
-        price: { type: Number, required: true },
+        name: { type: String },
+        ticker: { type: String },
+        price: { type: Number },
         currentAssets: { type: Number },
         currentLiabilities: { type: Number },
         financialCondition: { type: Number },
