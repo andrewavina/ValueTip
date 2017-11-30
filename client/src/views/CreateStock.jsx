@@ -6,9 +6,9 @@ class CreateStock extends React.Component {
         fields: {
             name: '',
             ticker: '', 
-            price: 0.00,
-            currentAssets: 0.00,
-            currentLiabilities: 0.00,
+            price: 0,
+            currentAssets: 0,
+            currentLiabilities: 0,
             financialCondition: '',            
             earningsStability: '',
             dividendRecord: '',
@@ -28,7 +28,7 @@ class CreateStock extends React.Component {
         console.log(newFinancialCondition)
         this.setState({
             fields: {
-                financialCondition: "Yes"
+                financialCondition: Number(newFinancialCondition)
             }
         })
         console.log(this.state.fields.financialCondition.value)
@@ -45,53 +45,7 @@ class CreateStock extends React.Component {
 
     
     onFormSubmit(evt) {
-        //1 piece
         evt.preventDefault()
-        
-        //CALCULATIONS
-            //need to turn values into Numbers since they are strings they don't caluclate. Use Number(). Works with decimals as well.
-            //EXAMPLE    
-                // var price = Number(this.state.fields.price)
-                // var add = Number(this.state.fields.valuePrice)
-                // var total = price + add
-                // console.log(total)
-            //1st calculation question
-            // var l = Number(this.state.fields.currentLiabilities)
-            // var a = Number(this.state.fields.currentAssets)
-            // var multiplier = l * l //works
-            // var outcome = function(financialCondition){
-            //     if (a > multiplier){
-            //         console.log("yes") //test
-            //         var yes = "Yes"
-            //         financialCondition = yes
-            //     } else {
-            //         console.log("no") //test
-            //         var no = "No"
-            //         financialCondition = yes
-            //     }
-            //     //render on screen - currently working on this
-            // }
-            //outcome() - call function here to test
-          
-            //function idea:
-                // function(value={financialCondition}){
-                //     var l = Number(this.state.fields.currentLiabilities)
-                //     var a = Number(this.state.fields.currentAssets)
-                //     var multiplier = l * l //works
-                //     if (a > multiplier){
-                //         console.log("yes") //test
-                //         var yes = "Yes"
-                //         value={financialCondition} = yes
-                //     } else {
-                //         console.log("no") //test
-                //         var no = "No"
-                //         value={financialCondition} = yes
-                //     }
-                // }
-
-
-        //3rd piece
-
         axios({
             method: 'post',
             url: `/api/users/${this.props.currentUser._id}/stocks`,
@@ -122,8 +76,8 @@ class CreateStock extends React.Component {
     }
 
     render() {
-        const { name, ticker, price, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice, score, currentAssets, currentLiabilities, currentLiabilitiesX2, question1Total } = this.state.fields
-       
+        const { name, ticker, price, earningsStability, dividendRecord, earningsGrowth, valuePrice, score, currentAssets, currentLiabilities, currentLiabilitiesX2, question1Total } = this.state.fields
+        const financialCondition = this.state.fields.currentAssets * this.state.fields.currentLiabilities
         return (
             <div className='CreateStock'>
                 <h1>Add A Stock</h1>
