@@ -9,7 +9,7 @@ class CreateStock extends React.Component {
             price: 0.00,
             currentAssets: 0.00,
             currentLiabilities: 0.00,
-            financialCondition: 0.00,            
+            financialCondition: '',            
             earningsStability: '',
             dividendRecord: '',
             earningsGrowth: '',
@@ -23,17 +23,22 @@ class CreateStock extends React.Component {
     calculateFinancialCondition(evt){
         evt.preventDefault()
         //console.log(this.state.fields.currentLiabilities * this.state.fields.currentAssets) //calculation works
-        var financialCondition = 0
-        financialCondition = Number(this.state.fields.currentLiabilities) * Number(this.state.fields.currentAssets)
-        console.log(financialCondition)
+        var newFinancialCondition = 0
+        newFinancialCondition = Number(this.state.fields.currentLiabilities) * Number(this.state.fields.currentAssets)
+        console.log(newFinancialCondition)
+        this.setState({
+            fields: {
+                financialCondition: "Yes"
+            }
+        })
+        console.log(this.state.fields.financialCondition.value)
     }
 
     onInputChange(evt) {
         this.setState({
             fields: {
                 ...this.state.fields,
-                [evt.target.name]: evt.target.value,
-
+                [evt.target.name]: evt.target.value
             }
         })
     }
@@ -110,7 +115,7 @@ class CreateStock extends React.Component {
                 }
             })
             if (event) {
-               // console.log(event)
+                console.log(event)
                 this.props.history.push(`/myreport`)
             }
         })
@@ -150,7 +155,7 @@ class CreateStock extends React.Component {
                         <input type="number" placeholder="number" name="currentLiabilities" value={currentLiabilities} className=""/>  
 
                         <p>Financial Condition calculation (i.e. 1.5 X current liabilities):</p>
-                        <input type="number" placeholder="number" name="financialCondition" value={financialCondition} className=""/>                    
+                        <input type="text" placeholder="" name="financialCondition" value={financialCondition} className="" disabled/> {/* added 'disabled' to protect calculation total from being changed before submit*/}
 
                         <button className="btn btn-secondary" onClick={this.calculateFinancialCondition.bind(this)} >Calculate Financial Condition</button>
                                                                       
