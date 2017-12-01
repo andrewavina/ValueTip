@@ -75,6 +75,9 @@ class CreateStock extends React.Component {
             .catch(function (error) {
                 console.log(error.response.data);
             });
+            if(event){
+                this.props.history.push(`/myreport`)
+            }
     }
 
     render() {
@@ -122,7 +125,6 @@ class CreateStock extends React.Component {
                                 <input type="text" name="financialCondition" id="financialCondition" className="form-control" value={financialCondition} disabled/>
                             </td>
                         </tr>
-                        <hr/>
                         <tr>
                             <td>Score</td>
                             <td>
