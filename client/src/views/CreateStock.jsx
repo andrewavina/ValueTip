@@ -82,7 +82,8 @@ class CreateStock extends React.Component {
         let earnings2016 = this.state.earnings2016;        
         let earningsStability = 0 < (earnings2016 || earnings2015 || earnings2014);        
 
-        let score = Number(financialCondition);
+        let score = Number(financialCondition) + Number(earningsStability);        
+
         console.log(financialCondition);
         const self = this;
         axios.post(`/api/users/${this.props.currentUser._id}/stocks`, {
