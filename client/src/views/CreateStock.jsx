@@ -6,16 +6,24 @@ class CreateStock extends React.Component {
         super(props);
 
     this.state = {
+        //general info
         name: '',
         ticker: '',
         price: 0.00,
+        //#1 - Financial Condition        
         currentAssets: 0,
         currentLiabilities: 0,
         financialCondition: '',
+        //#2 - Earnings Stability
         earnings2014: 0,
         earnings2015: 0,
         earnings2016: 0,
         earningsStability: '',
+        //#3 - Dividend Record        
+        dividendRecord: '',
+        //#4 - Earnings Growth (can use the earnings2014... already entered)
+        earningsGrowth: '',
+        //Final Score
         score: 0
     };
 
@@ -30,8 +38,9 @@ class CreateStock extends React.Component {
     this.handleLiabilitiesChange = this.handleLiabilitiesChange.bind(this);
     this.handleEarnings2014Change = this.handleEarnings2014Change.bind(this);
     this.handleEarnings2015Change = this.handleEarnings2015Change.bind(this);
-    this.handleEarnings2016Change = this.handleEarnings2016Change.bind(this);    
-    }
+    this.handleEarnings2016Change = this.handleEarnings2016Change.bind(this); 
+    this.handleDividendRecordChange = this.handleDividendRecordChange.bind(this);
+    } //end bracket of constructor
 
     componentWillMount(){}
 
@@ -67,6 +76,15 @@ class CreateStock extends React.Component {
         this.setState(...this.state, {earnings2016: event.target.value});
     }
 
+    handleDividendRecordChange(event) {
+        if(this.setState(...this.state, {dividendRecord: "false"})) {
+            this.setState(...this.state, {dividendRecord: false})
+        } else {
+            this.setState(...this.state, {dividendRecord: true})            
+        }
+        
+    }
+
     handleFormSubmit(event) {
         event.preventDefault();
         let name = this.state.name;
@@ -82,9 +100,19 @@ class CreateStock extends React.Component {
         let earnings2016 = this.state.earnings2016;        
         let earningsStability = 0 < (earnings2016 || earnings2015 || earnings2014);        
 
-        let score = Number(financialCondition) + Number(earningsStability);        
+        let earningsGrowth = this.state.earningsGrowth
+            if(earnings2015 < earnings2014 || earnings2016 < earnings2015){
+                let earningsGrowth = false
+            } else {let earningsGrowth = true}
 
-        console.log(financialCondition);
+        let dividendRecord = this.state.dividendRecord;
+            if (dividendRecord === "true") {
+                let dividendRecord = true
+            } else {let dividendRecord = false};
+
+        let score = Number(financialCondition) + Number(earningsStability) + Number(dividendRecord) + Number(earningsGrowth);        
+
+        // console.log(financialCondition);
         const self = this;
         axios.post(`/api/users/${this.props.currentUser._id}/stocks`, {
             name: name,
@@ -97,11 +125,13 @@ class CreateStock extends React.Component {
             earnings2015: earnings2015,
             earnings2016: earnings2016,
             earningsStability: earningsStability,
+            dividendRecord: dividendRecord,
+            earningsGrowth: earningsGrowth,
             score: score
         })
             .then(function (response) {
                 console.log(response);
-                self.setState({name: '', ticker: '', price: '', currentAssets: '', currentLiabilities: '', financialCondition: '', earnings2014: '', earnings2015: '', earnings2016: '', earningsStability: '', score: ''});
+                self.setState({name: '', ticker: '', price: '', currentAssets: '', currentLiabilities: '', financialCondition: '', earnings2014: '', earnings2015: '', earnings2016: '', earningsStability: '', dividendRecord: '', earningsGrowth: '', score: ''});
             })
             .catch(function (error) {
                 console.log(error.response.data);
@@ -113,8 +143,21 @@ class CreateStock extends React.Component {
 
     render() {
         const financialCondition = this.state.currentAssets > (1.5 * this.state.currentLiabilities);
+        
         let earningsStability = 0 < (this.state.earnings2016 || this.state.earnings2015 || this.state.earnings2014);                
-        const score = Number(financialCondition) + Number(earningsStability);
+        
+        let earningsGrowth = this.state.earningsGrowth
+        if(this.state.earnings2015 < this.state.earnings2014 || this.state.earnings2016 < this.state.earnings2015){
+            let earningsGrowth = false
+        } else {let earningsGrowth = true}
+
+        const dividendRecord = this.state.dividendRecord;
+        if (dividendRecord === "true") {
+            let dividendRecord = true
+        } else {let dividendRecord = false};
+
+        const score = Number(financialCondition) + Number(earningsStability) + Number(dividendRecord);
+        
         return (
             <div className="container">
                 <br/> {/* To give space between navbar and table */}
@@ -146,9 +189,9 @@ class CreateStock extends React.Component {
                         </tr>
                         
                         
-                            <tr>
-                            <th scope="col">FINANCIAL CONDITION</th>
-                            </tr>
+                        <tr>
+                        <th scope="col">FINANCIAL CONDITION</th>
+                        </tr>
                        
                         <tr>
                             <td>Current Assets</td>
@@ -170,9 +213,9 @@ class CreateStock extends React.Component {
                         </tr>
 
                         
-                            <tr>
-                            <th scope="col">EARNINGS STABILITY</th>
-                            </tr>
+                        <tr>
+                        <th scope="col">EARNINGS STABILITY</th>
+                        </tr>
                         
                         <tr>
                             <td>2014 Earnings</td>
@@ -198,11 +241,33 @@ class CreateStock extends React.Component {
                                 <input type="text" name="earningsStability" id="earningsStability" className="form-control" value={earningsStability} disabled/>
                             </td>
                         </tr>
-                        
-                        
+
+                        <tr>
+                            <th scope="col">EARNINGS GROWTH</th>
+                        </tr>
                             <tr>
-                            <th scope="col">----------------</th>
+                                <td>Earnings Growth</td>
+                                <td>
+                                    <input type="text" name="earningsGrowth" id="earningsGrowth" className="form-control" value={earningsGrowth} disabled/>
+                                </td>
                             </tr>
+
+                        <tr>
+                            <th scope="col">DIVIDEND</th>
+                        </tr>
+                        <tr>
+                            <td>Current Dividend?</td>
+                            <td>
+                            <select className="form-control" id="dividendRecord" name="dividendRecord" value={dividendRecord} onChange={this.handleDividendRecordChange} >
+                                <option>false</option>
+                                <option>true</option>
+                            </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                        <th scope="col">----------------</th>
+                        </tr>
                         
                         <tr>
                             <td>Score</td>
