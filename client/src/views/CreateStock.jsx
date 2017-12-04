@@ -97,19 +97,10 @@ class CreateStock extends React.Component {
         let currentLiabilities = this.state.currentLiabilities;
         let financialCondition = currentAssets > (1.5 * currentLiabilities);
         
-        //WORKING ON THIS NOW vvvvvvvvvv
         let earnings2014 = this.state.earnings2014;
         let earnings2015 = this.state.earnings2015;
         let earnings2016 = this.state.earnings2016;        
-        let earningsStability = (earnings2016 || earnings2015 || earnings2014) < 0;
-            //2nd try:
-                // if(earnings2015 || earnings2014 || earnings2016 < 0){
-                //     let earningsStability = false
-                // } else {let earningsStability = true}
-            //1st try
-                // 0 < (earnings2016 || earnings2015 || earnings2014);        
-
-        //WORKING ON THIS NOW ^^^^^^^^^^
+        let earningsStability = this.state.earnings2016 > 0 && this.state.earnings2015 > 0 && this.state.earnings2014 > 0;                   
 
         let earningsGrowth = earnings2015 < earnings2014 || earnings2016 < earnings2015
             if(earnings2015 < earnings2014 || earnings2016 < earnings2015){
@@ -154,16 +145,8 @@ class CreateStock extends React.Component {
 
     render() {
         const financialCondition = this.state.currentAssets > (1.5 * this.state.currentLiabilities);
-        
-    //WORKING ON THIS NOW vvvvvvvvvv    
-        let earningsStability = '';
-        //2nd try:
-            if(this.state.earnings2015 || this.state.earnings2014 || this.state.earnings2016 < 0){
-                let earningsStability = "false"
-            } else {let earningsStability = "true"}
-            // original try: 0 < (this.state.earnings2015 || this.state.earnings2014 || this.state.earnings2016);                
-            //calc issue: has to do with result only using 1st value i.e. earnings2015
-    //WORKING ON THIS NOW ^^^^^^^^             
+           
+        let earningsStability = this.state.earnings2016 > 0 && this.state.earnings2015 > 0 && this.state.earnings2014 > 0;           
 
         let earningsGrowth = this.state.earnings2015 < this.state.earnings2014 || this.state.earnings2016 < this.state.earnings2015
         // original try: 
