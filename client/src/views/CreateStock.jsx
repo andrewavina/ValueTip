@@ -100,12 +100,9 @@ class CreateStock extends React.Component {
         let earnings2014 = this.state.earnings2014;
         let earnings2015 = this.state.earnings2015;
         let earnings2016 = this.state.earnings2016;        
-        let earningsStability = this.state.earnings2016 > 0 && this.state.earnings2015 > 0 && this.state.earnings2014 > 0;                   
+        let earningsStability = earnings2016 > 0 && earnings2015 > 0 && earnings2014 > 0;                   
 
-        let earningsGrowth = earnings2015 < earnings2014 || earnings2016 < earnings2015
-            if(earnings2015 < earnings2014 || earnings2016 < earnings2015){
-                let earningsGrowth = "false"
-            } else {let earningsGrowth = "true"}
+        let earningsGrowth = earnings2015 > earnings2014 && earnings2016 > earnings2015        
 
         let dividendRecord = this.state.dividendRecord;
             if (dividendRecord === "true") {
@@ -148,13 +145,7 @@ class CreateStock extends React.Component {
            
         let earningsStability = this.state.earnings2016 > 0 && this.state.earnings2015 > 0 && this.state.earnings2014 > 0;           
 
-        let earningsGrowth = this.state.earnings2015 < this.state.earnings2014 || this.state.earnings2016 < this.state.earnings2015
-        // original try: 
-            // if(this.state.earnings2015 < this.state.earnings2014 || this.state.earnings2016 < this.state.earnings2015){
-            //     let earningsGrowth = "false"
-            // } else {
-            //     let earningsGrowth = "true"
-            // }
+        let earningsGrowth = this.state.earnings2015 > this.state.earnings2014 && this.state.earnings2016 > this.state.earnings2015; 
 
         const dividendRecord = this.state.dividendRecord;
         if (dividendRecord === "true") {
