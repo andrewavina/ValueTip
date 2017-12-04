@@ -38,7 +38,7 @@ class CreateStock extends React.Component {
     this.handleLiabilitiesChange = this.handleLiabilitiesChange.bind(this);
     this.handleEarnings2014Change = this.handleEarnings2014Change.bind(this);
     this.handleEarnings2015Change = this.handleEarnings2015Change.bind(this);
-    this.handleEarnings2016Change = this.handleEarnings2016Change.bind(this); 
+    this.handleEarnings2016Change = this.handleEarnings2016Change.bind(this);      
     this.handleDividendRecordChange = this.handleDividendRecordChange.bind(this);
     } //end bracket of constructor
 
@@ -85,6 +85,8 @@ class CreateStock extends React.Component {
         
     }
 
+
+
     handleFormSubmit(event) {
         event.preventDefault();
         let name = this.state.name;
@@ -95,15 +97,24 @@ class CreateStock extends React.Component {
         let currentLiabilities = this.state.currentLiabilities;
         let financialCondition = currentAssets > (1.5 * currentLiabilities);
         
+        //WORKING ON THIS NOW vvvvvvvvvv
         let earnings2014 = this.state.earnings2014;
         let earnings2015 = this.state.earnings2015;
         let earnings2016 = this.state.earnings2016;        
-        let earningsStability = 0 < (earnings2016 || earnings2015 || earnings2014);        
+        let earningsStability = (earnings2016 || earnings2015 || earnings2014) < 0;
+            //2nd try:
+                // if(earnings2015 || earnings2014 || earnings2016 < 0){
+                //     let earningsStability = false
+                // } else {let earningsStability = true}
+            //1st try
+                // 0 < (earnings2016 || earnings2015 || earnings2014);        
 
-        let earningsGrowth = this.state.earningsGrowth
+        //WORKING ON THIS NOW ^^^^^^^^^^
+
+        let earningsGrowth = earnings2015 < earnings2014 || earnings2016 < earnings2015
             if(earnings2015 < earnings2014 || earnings2016 < earnings2015){
-                let earningsGrowth = false
-            } else {let earningsGrowth = true}
+                let earningsGrowth = "false"
+            } else {let earningsGrowth = "true"}
 
         let dividendRecord = this.state.dividendRecord;
             if (dividendRecord === "true") {
@@ -144,19 +155,30 @@ class CreateStock extends React.Component {
     render() {
         const financialCondition = this.state.currentAssets > (1.5 * this.state.currentLiabilities);
         
-        let earningsStability = 0 < (this.state.earnings2016 || this.state.earnings2015 || this.state.earnings2014);                
-        
-        let earningsGrowth = this.state.earningsGrowth
-        if(this.state.earnings2015 < this.state.earnings2014 || this.state.earnings2016 < this.state.earnings2015){
-            let earningsGrowth = false
-        } else {let earningsGrowth = true}
+    //WORKING ON THIS NOW vvvvvvvvvv    
+        let earningsStability = '';
+        //2nd try:
+            if(this.state.earnings2015 || this.state.earnings2014 || this.state.earnings2016 < 0){
+                let earningsStability = "false"
+            } else {let earningsStability = "true"}
+            // original try: 0 < (this.state.earnings2015 || this.state.earnings2014 || this.state.earnings2016);                
+            //calc issue: has to do with result only using 1st value i.e. earnings2015
+    //WORKING ON THIS NOW ^^^^^^^^             
+
+        let earningsGrowth = this.state.earnings2015 < this.state.earnings2014 || this.state.earnings2016 < this.state.earnings2015
+        // original try: 
+            // if(this.state.earnings2015 < this.state.earnings2014 || this.state.earnings2016 < this.state.earnings2015){
+            //     let earningsGrowth = "false"
+            // } else {
+            //     let earningsGrowth = "true"
+            // }
 
         const dividendRecord = this.state.dividendRecord;
         if (dividendRecord === "true") {
             let dividendRecord = true
         } else {let dividendRecord = false};
 
-        const score = Number(financialCondition) + Number(earningsStability) + Number(dividendRecord);
+        const score = Number(financialCondition) + Number(earningsStability) + Number(earningsGrowth) + Number(dividendRecord);
         
         return (
             <div className="container">
