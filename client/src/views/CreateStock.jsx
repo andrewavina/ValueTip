@@ -123,7 +123,7 @@ class CreateStock extends React.Component {
         
         let netTangibleAssets = this.state.netTangibleAssets;
         let outstandingShares = this.state.outstandingShares;
-        let valuePrice = earnings2015 > earnings2014 && earnings2016 > earnings2015 //change value after testing initial render
+        let valuePrice = ((netTangibleAssets / outstandingShares) * 1.2) > price
 
         let score = Number(financialCondition) + Number(earningsStability) + Number(earningsGrowth) + Number(dividendRecord) + Number(valuePrice);        
 
@@ -175,7 +175,7 @@ class CreateStock extends React.Component {
             let dividendRecord = true
         } else {if(dividendRecord === "false") {let dividendRecord = false} };
 
-        let valuePrice = this.state.earnings2015 > this.state.earnings2014 && this.state.earnings2016 > this.state.earnings2015;         
+        let valuePrice = ((this.state.netTangibleAssets / this.state.outstandingShares) * 1.2) > this.state.price;         
 
         const score = Number(financialCondition) + Number(earningsStability) + Number(earningsGrowth) + Number(dividendRecord) + Number(valuePrice);
         
