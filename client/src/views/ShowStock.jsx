@@ -33,8 +33,6 @@ class ShowStock extends React.Component {
     }
 
     render() {
-        //If need to see who current user is:
-            //console.log(this.props.currentUser)
         const 
             { name, ticker, price, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice, score } = this.state.stock,
             { id } = this.props.match.params

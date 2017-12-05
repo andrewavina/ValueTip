@@ -19,10 +19,14 @@ class CreateStock extends React.Component {
         earnings2015: 0,
         earnings2016: 0,
         earningsStability: '',
-        //#3 - Dividend Record        
-        dividendRecord: '',
-        //#4 - Earnings Growth (can use the earnings2014... already entered)
+        //#3 - Earnings Growth (can use the earnings2014... already entered)
         earningsGrowth: '',
+        //#4 - Dividend Record        
+        dividendRecord: '',
+        //#5 - Value Price
+        netTangibleAssets: '',
+        outstandingShares: '',
+        valuePrice: '',
         //Final Score
         score: 0
     };
@@ -40,6 +44,8 @@ class CreateStock extends React.Component {
     this.handleEarnings2015Change = this.handleEarnings2015Change.bind(this);
     this.handleEarnings2016Change = this.handleEarnings2016Change.bind(this);      
     this.handleDividendRecordChange = this.handleDividendRecordChange.bind(this);
+    this.handleNetTangibleAssetsChange = this.handleNetTangibleAssetsChange.bind(this);
+    this.handleOutstandingSharesChange = this.handleOutstandingSharesChange.bind(this);
     } //end bracket of constructor
 
     componentWillMount(){}
@@ -83,13 +89,15 @@ class CreateStock extends React.Component {
             } else {
                 this.setState(...this.state, {dividendRecord: true})            
             }
-    //     let dividendRecord = this.state.dividendRecord;
-    //     if (dividendRecord === "true") {
-    //         let dividendRecord = true
-    //     } else {if(dividendRecord === "false") {let dividendRecord = false} };
     }
 
-
+    handleNetTangibleAssetsChange(event) {
+        this.setState(...this.state, {netTangibleAssets: event.target.value});
+    }
+    
+    handleOutstandingSharesChange(event) {
+        this.setState(...this.state, {outstandingShares: event.target.value});
+    }
 
     handleFormSubmit(event) {
         event.preventDefault();
@@ -113,8 +121,11 @@ class CreateStock extends React.Component {
             let dividendRecord = true
         } else {if(dividendRecord === "false") {let dividendRecord = false} };
         
+        let netTangibleAssets = this.state.netTangibleAssets;
+        let outstandingShares = this.state.outstandingShares;
+        let valuePrice = earnings2015 > earnings2014 && earnings2016 > earnings2015 //change value after testing initial render
 
-        let score = Number(financialCondition) + Number(earningsStability) + Number(dividendRecord) + Number(earningsGrowth);        
+        let score = Number(financialCondition) + Number(earningsStability) + Number(earningsGrowth) + Number(dividendRecord) + Number(valuePrice);        
 
         const self = this;
         axios.post(`/api/users/${this.props.currentUser._id}/stocks`, {
@@ -128,13 +139,16 @@ class CreateStock extends React.Component {
             earnings2015: earnings2015,
             earnings2016: earnings2016,
             earningsStability: earningsStability,
+            earningsGrowth: earningsGrowth,            
             dividendRecord: dividendRecord,
-            earningsGrowth: earningsGrowth,
+            netTangibleAssets: netTangibleAssets,
+            outstandingShares: outstandingShares,
+            valuePrice: valuePrice,
             score: score
         })
             .then(function (response) {
                 console.log(response);
-                self.setState({name: '', ticker: '', price: '', currentAssets: '', currentLiabilities: '', financialCondition: '', earnings2014: '', earnings2015: '', earnings2016: '', earningsStability: '', dividendRecord: '', earningsGrowth: '', score: ''});
+                self.setState({name: '', ticker: '', price: '', currentAssets: '', currentLiabilities: '', financialCondition: '', earnings2014: '', earnings2015: '', earnings2016: '', earningsStability: '', earningsGrowth: '', dividendRecord: '', netTangibleAssets: '', outstandingShares:'', valuePrice: '', score: ''});
             })
             .catch(function (error) {
                 console.log(error.response.data);
@@ -161,7 +175,9 @@ class CreateStock extends React.Component {
             let dividendRecord = true
         } else {if(dividendRecord === "false") {let dividendRecord = false} };
 
-        const score = Number(financialCondition) + Number(earningsStability) + Number(earningsGrowth) + Number(dividendRecord);
+        let valuePrice = this.state.earnings2015 > this.state.earnings2014 && this.state.earnings2016 > this.state.earnings2015;         
+
+        const score = Number(financialCondition) + Number(earningsStability) + Number(earningsGrowth) + Number(dividendRecord) + Number(valuePrice);
         
         return (
             <div className="container">
@@ -189,7 +205,7 @@ class CreateStock extends React.Component {
                         <tr>
                             <td>Price</td>
                             <td>
-                                <input type="text" name="price" id="price" className="form-control" placeholder="price..." value={this.state.price} onChange={this.handlePriceChange} />
+                                <input type="number" name="price" id="price" className="form-control" placeholder="price..." value={this.state.price} onChange={this.handlePriceChange} />
                             </td>
                         </tr>
                         
@@ -201,13 +217,13 @@ class CreateStock extends React.Component {
                         <tr>
                             <td>Current Assets</td>
                             <td>
-                                <input type="text" name="currentAssets" id="currentAssets" className="form-control" placeholder="currentAssets..." value={this.state.currentAssets} onChange={this.handleAssetsChange} />
+                                <input type="number" name="currentAssets" id="currentAssets" className="form-control" placeholder="currentAssets..." value={this.state.currentAssets} onChange={this.handleAssetsChange} />
                             </td>
                         </tr>
                         <tr>
                             <td>Current Liabilities</td>
                             <td>
-                                <input type="text" name="currentLiabilities" id="currentLiabilities" className="form-control" placeholder="currentLiabilities..." value={this.state.currentLiabilities} onChange={this.handleLiabilitiesChange} />
+                                <input type="number" name="currentLiabilities" id="currentLiabilities" className="form-control" placeholder="currentLiabilities..." value={this.state.currentLiabilities} onChange={this.handleLiabilitiesChange} />
                             </td>
                         </tr>
                         <tr>
@@ -225,19 +241,19 @@ class CreateStock extends React.Component {
                         <tr>
                             <td>2014 Earnings</td>
                             <td>
-                                <input type="text" name="earnings2014" id="earnings2014" className="form-control" placeholder="earnings2014..." value={this.state.earnings2014} onChange={this.handleEarnings2014Change} />
+                                <input type="number" name="earnings2014" id="earnings2014" className="form-control" placeholder="earnings2014..." value={this.state.earnings2014} onChange={this.handleEarnings2014Change} />
                             </td>
                         </tr>
                         <tr>
                             <td>2015 Earnings</td>
                             <td>
-                                <input type="text" name="earnings2015" id="earnings2015" className="form-control" placeholder="earnings2015..." value={this.state.earnings2015} onChange={this.handleEarnings2015Change} />                                
+                                <input type="number" name="earnings2015" id="earnings2015" className="form-control" placeholder="earnings2015..." value={this.state.earnings2015} onChange={this.handleEarnings2015Change} />                                
                             </td>
                         </tr>
                         <tr>
                             <td>2016 Earnings</td>
                             <td>
-                                <input type="text" name="earnings2016" id="earnings2016" className="form-control" placeholder="earnings2016..." value={this.state.earnings2016} onChange={this.handleEarnings2016Change} />                                
+                                <input type="number" name="earnings2016" id="earnings2016" className="form-control" placeholder="earnings2016..." value={this.state.earnings2016} onChange={this.handleEarnings2016Change} />                                
                             </td>
                         </tr>
                         <tr>
@@ -269,6 +285,30 @@ class CreateStock extends React.Component {
                             </select>
                             </td>
                         </tr>
+
+                        <tr>
+                            <th scope="col">VALUE PRICE</th>
+                        </tr>
+                            <tr>
+                                <td>Net Tangible Assets</td>
+                                <td>
+                                    <input type="number" name="netTangibleAssets" id="netTangibleAssets" className="form-control" placeholder="netTangibleAssets..." value={this.state.netTangibleAssets} onChange={this.handleNetTangibleAssetsChange} />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Outstanding Shares</td>
+                                <td>
+                                    <input type="number" name="oustandingShares" id="oustandingShares" className="form-control" placeholder="oustandingShares..." value={this.state.oustandingShares} onChange={this.handleOutstandingSharesChange} />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Value Price</td>
+                                <td>
+                                    <input type="text" name="valuePrice" id="valuePrice" className="form-control" value={valuePrice} disabled/>
+                                </td>
+                            </tr>
 
                         <tr>
                         <th scope="col">----------------</th>

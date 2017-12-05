@@ -26,7 +26,7 @@ class MyReport extends React.Component {
     }
 
     render(){
-        console.log(this.props.currentUser)
+        // console.log(this.props.currentUser) // test to see current user
         return (
             <div className="MyReport">
                 <h1>My Report</h1>

@@ -11,8 +11,10 @@ const
         earnings2015: { type: Number },
         earnings2016: { type: Number },
         earningsStability: { type: String },
-        dividendRecord: { type: String },
         earningsGrowth: { type: String },
+        dividendRecord: { type: String },        
+        netTangibleAssets: { type: Number },
+        outstandingShares: { type: Number },        
         valuePrice: { type: String },
         score: { type: Number },
         user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
