@@ -33,35 +33,37 @@ class ShowStock extends React.Component {
     }
 
     render() {
-        console.log(this.props.currentUser)
+        //If need to see who current user is:
+            //console.log(this.props.currentUser)
         const 
             { name, ticker, price, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice, score } = this.state.stock,
             { id } = this.props.match.params
-                return (
-                    <div className="ShowStock">
-                        <h1>Company Name: {name}</h1>
-                        <h3>Stock Ticker: {ticker}</h3>
-                        <h3>Price per Share: ${price}</h3>
-                        <hr/>
-                        <h4>Calculation Results</h4>
-                        <h6>Financial Condition: {financialCondition}</h6>
-                        <h6>Earnings Stability: {earningsStability}</h6>
-                        <h6>Earnings Growth: {earningsGrowth}</h6>
-                        <h6>Dividend Record: {dividendRecord}</h6>
-                        <h6>Value Price: {valuePrice}</h6>
-                        <hr/>
-                        <h3>Score:</h3>
-                        <h3>{score}/5</h3>
 
-                        <button className="btn btn-light">
-                            <Link to={`/edit-stock/${id}`}>Edit Stock</Link>
-                        </button>
-                        
-                        <button className="btn btn-danger">
-                            <Link to="/" onClick={this.onDeleteClick.bind(this)}>Delete</Link>
-                        </button>
-                    </div>
-                )
+        return (
+            <div className="ShowStock">
+                <h1>Company Name: {name}</h1>
+                <h3>Stock Ticker: {ticker}</h3>
+                <h3>Price per Share: ${price}</h3>
+                <hr/>
+                <h4>Calculation Results</h4>
+                <h6>Financial Condition: {financialCondition}</h6>
+                <h6>Earnings Stability: {earningsStability}</h6>
+                <h6>Earnings Growth: {earningsGrowth}</h6>
+                <h6>Dividend Record: {dividendRecord}</h6>
+                <h6>Value Price: {valuePrice}</h6>
+                <hr/>
+                <h3>Score:</h3>
+                <h3>{score}/5</h3>
+
+                <button className="btn btn-light">
+                    <Link to={`/edit-stock/${id}`}>Edit Stock</Link>
+                </button>
+                
+                <button className="btn btn-danger">
+                    <Link to="/" onClick={this.onDeleteClick.bind(this)}>Delete</Link>
+                </button>
+            </div>
+        )
     }
 } //last bracket
 

@@ -77,12 +77,16 @@ class CreateStock extends React.Component {
     }
 
     handleDividendRecordChange(event) {
-        if(this.setState(...this.state, {dividendRecord: "false"})) {
-            this.setState(...this.state, {dividendRecord: false})
-        } else {
-            this.setState(...this.state, {dividendRecord: true})            
-        }
-        
+        this.setState(...this.state, {dividendRecord: event.target.value});        
+            if(this.setState(...this.state, {dividendRecord: "false"})) {
+                this.setState(...this.state, {dividendRecord: false})
+            } else {
+                this.setState(...this.state, {dividendRecord: true})            
+            }
+    //     let dividendRecord = this.state.dividendRecord;
+    //     if (dividendRecord === "true") {
+    //         let dividendRecord = true
+    //     } else {if(dividendRecord === "false") {let dividendRecord = false} };
     }
 
 
@@ -103,15 +107,15 @@ class CreateStock extends React.Component {
         let earningsStability = earnings2016 > 0 && earnings2015 > 0 && earnings2014 > 0;                   
 
         let earningsGrowth = earnings2015 > earnings2014 && earnings2016 > earnings2015        
-
+           
         let dividendRecord = this.state.dividendRecord;
-            if (dividendRecord === "true") {
-                let dividendRecord = true
-            } else {let dividendRecord = false};
+        if (dividendRecord === "true") {
+            let dividendRecord = true
+        } else {if(dividendRecord === "false") {let dividendRecord = false} };
+        
 
         let score = Number(financialCondition) + Number(earningsStability) + Number(dividendRecord) + Number(earningsGrowth);        
 
-        // console.log(financialCondition);
         const self = this;
         axios.post(`/api/users/${this.props.currentUser._id}/stocks`, {
             name: name,
@@ -141,16 +145,21 @@ class CreateStock extends React.Component {
     }
 
     render() {
+        //test
+        
+
+        //test
+        
         const financialCondition = this.state.currentAssets > (1.5 * this.state.currentLiabilities);
            
         let earningsStability = this.state.earnings2016 > 0 && this.state.earnings2015 > 0 && this.state.earnings2014 > 0;           
 
         let earningsGrowth = this.state.earnings2015 > this.state.earnings2014 && this.state.earnings2016 > this.state.earnings2015; 
 
-        const dividendRecord = this.state.dividendRecord;
+        let dividendRecord = this.state.dividendRecord;
         if (dividendRecord === "true") {
             let dividendRecord = true
-        } else {let dividendRecord = false};
+        } else {if(dividendRecord === "false") {let dividendRecord = false} };
 
         const score = Number(financialCondition) + Number(earningsStability) + Number(earningsGrowth) + Number(dividendRecord);
         
