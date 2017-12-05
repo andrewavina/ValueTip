@@ -3,13 +3,11 @@ import { Switch, Route, Redirect} from 'react-router-dom'
 import clientAuth from './clientAuth'
 
 import NavBar from './NavBar'
-import Footer from './Footer'
 import Home from './views/Home'
 import LogIn from './views/LogIn'
 import LogOut from './views/LogOut'
 import SignUp from './views/SignUp'
 import MyReport from './views/MyReport'
-// import Companies from './views/Companies'
 //Users
 import Settings from './views/Settings'
 import DeleteUser from './views/DeleteUser'

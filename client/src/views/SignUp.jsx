@@ -1,5 +1,7 @@
 import React from 'react'
 import clientAuth from '../clientAuth'
+import { Link } from 'react-router-dom'
+
 
 // sign up for behaves almost identically to log in form. We could create a flexible Form component to use for both actions, but for now we'll separate the two:
 class SignUp extends React.Component {
@@ -43,11 +45,13 @@ class SignUp extends React.Component {
                     <input type="password" placeholder="Password" name="password" value={password} className="form-control"/>
                 </div>
 
-                    <button className="btn btn-success">Create Account</button>
+                    <button className="btn btn-outline-success">Create Account</button>
                 </form>
                 <hr className="my-4"/>
                 <label>Already have an account?</label>                                        
-                <a className="btn btn-primary" href="/login" role="button">Log In</a>
+                    <Link to="/login">
+                    <button type="button" class="btn btn-outline-primary">Login</button>                        
+                    </Link>
             </div>
         )
     }

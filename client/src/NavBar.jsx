@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const NavBar = (props) => {
     return (
@@ -11,26 +11,41 @@ const NavBar = (props) => {
                 ? ( 
                     //Logged In User sees:
                     <span>
-                        {/* test vvvvv */}
+                        <Link to="/">
+                        <div className="navbar-brand">
+                            <img src="VT.png" width="30" height="30" alt=""/>
+                        </div>
+                        </Link>
+
                         <Link to="/myreport">
-                        <button type="button" class="btn btn-outline-secondary">My Report</button>                        
+                        <button type="button" className="btn btn-outline-secondary">My Report</button>                        
                         </Link>
                   
                         <Link to="/settings" className="navbar-item">
-                        <button type="button" class="btn btn-outline-secondary">Settings</button>
+                        <button type="button" className="btn btn-outline-secondary">Settings</button>
                         </Link>                                                
 
                         <Link to="/logout">
-                        <button type="button" class="btn btn-outline-secondary">Log Out</button>                        
+                        <button type="button" className="btn btn-outline-secondary">Log Out</button>                        
                         </Link>
                     </span>
                 )
                 : (
                     //Else NOT logged in sees:                    
                     <span>
-                        <Link to="/">Home</Link>                        
-                        <Link to="/login">Log In</Link>
-                        <Link to="/signup">Sign Up</Link>
+                        <Link to="/">
+                        <div className="navbar-brand">
+                            <img src="VT.png" width="30" height="30" alt=""/>
+                        </div>
+                        </Link>
+
+                        <Link to="/login">
+                        <button type="button" className="btn btn-outline-secondary">Login</button>                        
+                        </Link>
+
+                        <Link to="/signup">
+                        <button type="button" className="btn btn-outline-secondary">Sign Up</button>                        
+                        </Link>
                     </span>
                 )
             }

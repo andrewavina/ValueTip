@@ -1,5 +1,6 @@
 import React from 'react'
 import clientAuth from '../clientAuth'
+import { Link } from 'react-router-dom'
 
 class LogIn extends React.Component {
     state = {
@@ -30,7 +31,7 @@ class LogIn extends React.Component {
         const { email, password } = this.state.fields
         return (
             <div className='LogIn'>
-                <h1>Log in</h1>
+                <h1>Login</h1>
                 <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
                     <div className="form-group">
                         <label>Email</label>
@@ -42,11 +43,13 @@ class LogIn extends React.Component {
                         <input type="password" placeholder="Password" name="password" value={password} className="form-control"/>
                     </div>
 
-                    <button className="btn btn-primary">Log In</button>
+                    <button className="btn btn-outline-primary">Login</button>
                 </form>
                 <hr className="my-4"/>
-                <label>Don't have an account?</label>                                        
-                <a className="btn btn-success" href="signup" role="button">Sign Up</a>
+                <label>Don't have an account?</label>                                  
+                    <Link to="/signup">
+                    <button type="button" class="btn btn-outline-success">Sign Up</button>                        
+                    </Link>
             </div>
         )
     }

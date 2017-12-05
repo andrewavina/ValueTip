@@ -34,8 +34,7 @@ class ShowStock extends React.Component {
 
     render() {
         const 
-            { name, ticker, price, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice, score } = this.state.stock,
-            { id } = this.props.match.params
+            { name, ticker, price, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice, score } = this.state.stock
 
         return (
             <div className="ShowStock">
