@@ -8,6 +8,7 @@ const NavBar = (props) => {
             <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">            
             {props.currentUser
                 ? ( 
+                    //Logged In User sees:
                     <span>
                         <Link to="/myreport">My Report</Link>
                         {/* <Link to="/companies">Companies</Link> */}
@@ -16,6 +17,7 @@ const NavBar = (props) => {
                     </span>
                 )
                 : (
+                    //Else NOT logged in sees:                    
                     <span>
                         <Link to="/">Home</Link>                        
                         <Link to="/login">Log In</Link>

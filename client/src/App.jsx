@@ -24,12 +24,7 @@ import EditStock from './views/EditStock'
 
 class App extends React.Component {
     state = { currentUser: clientAuth.getCurrentUser() }
-    //order of below functions doesn't matter before render()...
-    
-    //initial fix for refresh of companies
-        // componentWillMount() {
-        //     this.setState({ currentUser: clientAuth.getCurrentUser() })
-        // }
+    //order of below functions doesn't matter before render()
 
     componentDidMount() {
         this.setState({ currentUser: clientAuth.getCurrentUser() })
