@@ -12,6 +12,7 @@ const
         earnings2016: { type: Number },
         earningsStability: { type: String },
         earningsGrowth: { type: String },
+        isThereDividend: { type: Number },
         dividendRecord: { type: String },        
         netTangibleAssets: { type: Number },
         outstandingShares: { type: Number },        

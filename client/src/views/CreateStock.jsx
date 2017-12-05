@@ -22,6 +22,7 @@ class CreateStock extends React.Component {
         //#3 - Earnings Growth (can use the earnings2014... already entered)
         earningsGrowth: '',
         //#4 - Dividend Record        
+        isThereDividend: '',
         dividendRecord: '',
         //#5 - Value Price
         netTangibleAssets: '',
@@ -43,7 +44,7 @@ class CreateStock extends React.Component {
     this.handleEarnings2014Change = this.handleEarnings2014Change.bind(this);
     this.handleEarnings2015Change = this.handleEarnings2015Change.bind(this);
     this.handleEarnings2016Change = this.handleEarnings2016Change.bind(this);      
-    this.handleDividendRecordChange = this.handleDividendRecordChange.bind(this);
+    this.handleIsThereDividendChange = this.handleIsThereDividendChange.bind(this);
     this.handleNetTangibleAssetsChange = this.handleNetTangibleAssetsChange.bind(this);
     this.handleOutstandingSharesChange = this.handleOutstandingSharesChange.bind(this);
     } //end bracket of constructor
@@ -82,13 +83,8 @@ class CreateStock extends React.Component {
         this.setState(...this.state, {earnings2016: event.target.value});
     }
 
-    handleDividendRecordChange(event) {
-        this.setState(...this.state, {dividendRecord: event.target.value});        
-            if(this.setState(...this.state, {dividendRecord: "false"})) {
-                this.setState(...this.state, {dividendRecord: false})
-            } else {
-                this.setState(...this.state, {dividendRecord: true})            
-            }
+    handleIsThereDividendChange(event) {
+        this.setState(...this.state, {isThereDividend: event.target.value});        
     }
 
     handleNetTangibleAssetsChange(event) {
@@ -116,10 +112,8 @@ class CreateStock extends React.Component {
 
         let earningsGrowth = earnings2015 > earnings2014 && earnings2016 > earnings2015        
            
-        let dividendRecord = this.state.dividendRecord;
-        if (dividendRecord === "true") {
-            let dividendRecord = true
-        } else {if(dividendRecord === "false") {let dividendRecord = false} };
+        let isThereDividend = this.state.isThereDividend;
+        let dividendRecord = this.state.isThereDividend > 0;
         
         let netTangibleAssets = this.state.netTangibleAssets;
         let outstandingShares = this.state.outstandingShares;
@@ -139,7 +133,8 @@ class CreateStock extends React.Component {
             earnings2015: earnings2015,
             earnings2016: earnings2016,
             earningsStability: earningsStability,
-            earningsGrowth: earningsGrowth,            
+            earningsGrowth: earningsGrowth,
+            isThereDividend: isThereDividend,            
             dividendRecord: dividendRecord,
             netTangibleAssets: netTangibleAssets,
             outstandingShares: outstandingShares,
@@ -148,7 +143,7 @@ class CreateStock extends React.Component {
         })
             .then(function (response) {
                 console.log(response);
-                self.setState({name: '', ticker: '', price: '', currentAssets: '', currentLiabilities: '', financialCondition: '', earnings2014: '', earnings2015: '', earnings2016: '', earningsStability: '', earningsGrowth: '', dividendRecord: '', netTangibleAssets: '', outstandingShares:'', valuePrice: '', score: ''});
+                self.setState({name: '', ticker: '', price: '', currentAssets: '', currentLiabilities: '', financialCondition: '', earnings2014: '', earnings2015: '', earnings2016: '', earningsStability: '', earningsGrowth: '', isThereDividend: '', dividendRecord: '', netTangibleAssets: '', outstandingShares:'', valuePrice: '', score: ''});
             })
             .catch(function (error) {
                 console.log(error.response.data);
@@ -159,21 +154,14 @@ class CreateStock extends React.Component {
     }
 
     render() {
-        //test
-        
-
-        //test
-        
         const financialCondition = this.state.currentAssets > (1.5 * this.state.currentLiabilities);
            
         let earningsStability = this.state.earnings2016 > 0 && this.state.earnings2015 > 0 && this.state.earnings2014 > 0;           
 
         let earningsGrowth = this.state.earnings2015 > this.state.earnings2014 && this.state.earnings2016 > this.state.earnings2015; 
 
-        let dividendRecord = this.state.dividendRecord;
-        if (dividendRecord === "true") {
-            let dividendRecord = true
-        } else {if(dividendRecord === "false") {let dividendRecord = false} };
+        let isThereDividend = this.state.isThereDividend
+        let dividendRecord = isThereDividend > 0
 
         let valuePrice = ((this.state.netTangibleAssets / this.state.outstandingShares) * 1.2) > this.state.price;         
 
@@ -277,14 +265,18 @@ class CreateStock extends React.Component {
                             <th scope="col">DIVIDEND</th>
                         </tr>
                         <tr>
-                            <td>Current Dividend?</td>
+                            <td>Dividend Amount:</td>
                             <td>
-                            <select className="form-control" id="dividendRecord" name="dividendRecord" value={dividendRecord} onChange={this.handleDividendRecordChange} >
-                                <option>false</option>
-                                <option>true</option>
-                            </select>
+                                <input type="number" name="isThereDividend" id="isThereDividend" className="form-control" placeholder="Put 0 if none..." value={this.state.isThereDividend} onChange={this.handleIsThereDividendChange} />                                
                             </td>
                         </tr>
+                        <tr>
+                            <td>Dividend:</td>
+                            <td>
+                                <input type="text" name="dividendRecord" id="dividendRecord" className="form-control" value={dividendRecord} disabled/>
+                            </td>
+                        </tr>
+
 
                         <tr>
                             <th scope="col">VALUE PRICE</th>
