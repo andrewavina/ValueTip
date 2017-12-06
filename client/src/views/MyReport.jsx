@@ -30,9 +30,10 @@ class MyReport extends React.Component {
         return (
             <div className="MyReport">
                 <h1>My Report</h1>
-                <button className="btn btn-light">
-                    {<Link to="/create-stock">Add a Stock</Link>}
-                </button>
+                
+                <Link to="/create-stock">
+                <button className="btn btn-light">Add a Stock</button>
+                </Link>
                 
                 <hr/>
                 <h2>Saved Stocks</h2>

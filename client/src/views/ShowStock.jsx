@@ -53,14 +53,10 @@ class ShowStock extends React.Component {
                 <h3>Score:</h3>
                 <h3>{score}/5</h3>
                 
-
-                {/* <button className="btn btn-light">
-                    <Link to={`/edit-stock/${id}`}>Edit Stock</Link>
-                </button> */}
+                <Link to="/" onClick={this.onDeleteClick.bind(this)}>
+                <button className="btn btn-danger">Delete <i class="fa fa-trash" aria-hidden="true"></i></button>
+                </Link>
                 
-                <button className="btn btn-danger">
-                    <Link to="/" onClick={this.onDeleteClick.bind(this)}>Delete</Link>
-                </button>
             </div>
         )
     }

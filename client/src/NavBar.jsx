@@ -18,15 +18,15 @@ const NavBar = (props) => {
                         </Link>
 
                         <Link to="/myreport">
-                        <button type="button" className="btn btn-outline-secondary">My Report</button>                        
+                        <button type="button" className="btn btn-outline-secondary">My Report <i className="fa fa-list-alt" aria-hidden="true"></i></button>                        
                         </Link>
                   
                         <Link to="/settings" className="navbar-item">
-                        <button type="button" className="btn btn-outline-secondary">Settings</button>
+                        <button type="button" className="btn btn-outline-secondary">Settings <i className="fa fa-address-card-o" aria-hidden="true"></i></button>
                         </Link>                                                
 
                         <Link to="/logout">
-                        <button type="button" id="logout" className="btn btn-outline-secondary">Log Out</button>                        
+                        <button type="button" id="logout" className="btn btn-outline-secondary">Log Out <i className="fa fa-sign-out" aria-hidden="true"></i></button>                        
                         </Link>
                     </span>
                 )
@@ -40,11 +40,11 @@ const NavBar = (props) => {
                         </Link>
 
                         <Link to="/login">
-                        <button type="button" className="btn btn-outline-secondary">Login</button>                        
+                        <button type="button" className="btn btn-outline-secondary">Login <i className="fa fa-sign-in" aria-hidden="true"></i></button>                        
                         </Link>
 
                         <Link to="/signup">
-                        <button type="button" className="btn btn-outline-secondary">Sign Up</button>                        
+                        <button type="button" className="btn btn-outline-secondary">Sign Up <i className="fa fa-user-plus" aria-hidden="true"></i></button>                        
                         </Link>
                     </span>
                 )
