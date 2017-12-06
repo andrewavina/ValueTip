@@ -16,11 +16,57 @@ a, button {
 }
 
 .jumbotron {
-    /* margin-top: 120px; */
-    background: url('jumbotronLogo.jpeg');
+    margin-top: 75px;
+    background: url('shot.png');
     text-align: center;
     background-repeat: no-repeat;
-    background-position: 350px;
-    /* background-attachment: fixed; */
+    background-position: center;
+    background-size: 1400px;   
 }
 
+
+
+#headline {
+    font-size: 100px;
+    background: rgba(69, 67, 67, 0.7);
+    font-weight: bold;
+}
+
+#subhead {
+    font-size: 55px;
+    background: rgba(69, 67, 67, 0.7);
+    margin-top: -9px;
+}
+
+#container2 {
+    margin-top: -32px;
+    background: black;
+    color: white;
+}
+
+.fa-bookmark-o {
+    font-size: 125px;
+    float: left;
+}
+
+#container3 {
+    margin-top: -32px;
+    background: white;
+    color: black;
+}
+
+.fa-calculator {
+    font-size: 125px;
+    float: right;
+}
+
+#container4 {
+    margin-top: -32px;
+    background: black;
+    color: white;
+}
+
+.fa-tachometer {
+    font-size: 125px;
+    float: left;
+}
