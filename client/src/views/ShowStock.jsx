@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
+
 class ShowStock extends React.Component {
     state = {
         stock: {},
@@ -51,6 +52,7 @@ class ShowStock extends React.Component {
                 <hr/>
                 <h3>Score:</h3>
                 <h3>{score}/5</h3>
+                
 
                 {/* <button className="btn btn-light">
                     <Link to={`/edit-stock/${id}`}>Edit Stock</Link>

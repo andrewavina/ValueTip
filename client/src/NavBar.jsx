@@ -26,7 +26,7 @@ const NavBar = (props) => {
                         </Link>                                                
 
                         <Link to="/logout">
-                        <button type="button" className="btn btn-outline-secondary">Log Out</button>                        
+                        <button type="button" id="logout" className="btn btn-outline-secondary">Log Out</button>                        
                         </Link>
                     </span>
                 )

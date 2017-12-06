@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route, Redirect} from 'react-router-dom'
 import clientAuth from './clientAuth'
 
+
 import NavBar from './NavBar'
 import Home from './views/Home'
 import LogIn from './views/LogIn'

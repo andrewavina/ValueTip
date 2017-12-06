@@ -11,3 +11,16 @@ a, button {
     margin-bottom: 35px;
 }
 
+.navbar {
+    float: right;
+}
+
+.jumbotron {
+    /* margin-top: 120px; */
+    background: url('jumbotronLogo.jpeg');
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: 350px;
+    /* background-attachment: fixed; */
+}
+
