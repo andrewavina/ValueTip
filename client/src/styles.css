@@ -76,3 +76,11 @@ a, button {
 .login-fields {
     width: 20%;
 }
+
+.create-stock-table {
+    size: 30px;
+}
+
+.create-header {
+    text-align: center;
+}
