@@ -24,7 +24,7 @@ function logIn(credentials) {
     return clientAuth({ method: 'post', url: '/api/users/authenticate', data: credentials })
         .then(res => {
             const token = res.data.token
-            console.log(getCurrentUser())
+            // console.log(getCurrentUser())
             if(token) {
                 clientAuth.defaults.headers.common.token = setToken(token)
                 return jwtDecode(token)

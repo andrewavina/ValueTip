@@ -35,7 +35,7 @@ class Settings extends React.Component {
                 }
             })
             if (user) 
-                 console.log(user)
+                //  console.log(user)
                  this.props.history.push('/myreport')
         })
     }
