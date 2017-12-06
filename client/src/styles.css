@@ -8,7 +8,7 @@ a, button {
 }
 
 .NavBar {
-    margin-bottom: 35px;
+    margin-bottom: 75px;
 }
 
 .navbar {
@@ -30,17 +30,19 @@ a, button {
     font-size: 100px;
     background: rgba(69, 67, 67, 0.7);
     font-weight: bold;
+    color: black;
 }
 
 #subhead {
     font-size: 55px;
     background: rgba(69, 67, 67, 0.7);
     margin-top: -9px;
+    color: black;    
 }
 
 #container2 {
     margin-top: -32px;
-    background: black;
+    background: #343a40;
     color: white;
 }
 
@@ -62,7 +64,7 @@ a, button {
 
 #container4 {
     margin-top: -32px;
-    background: black;
+    background: #343a40;
     color: white;
 }
 
@@ -71,3 +73,6 @@ a, button {
     float: left;
 }
 
+.login-fields {
+    width: 20%;
+}

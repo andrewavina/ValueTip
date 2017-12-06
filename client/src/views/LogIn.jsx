@@ -30,7 +30,7 @@ class LogIn extends React.Component {
     render() {
         const { email, password } = this.state.fields
         return (
-            <div className='LogIn'>
+            <div className="LogIn login-fields">
                 <h1>Login</h1>
                 <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
                     <div className="form-group">
@@ -48,7 +48,7 @@ class LogIn extends React.Component {
                 <hr className="my-4"/>
                 <label>Don't have an account?</label>                                  
                     <Link to="/signup">
-                    <button type="button" class="btn btn-outline-success">Sign Up</button>                        
+                    <button type="button" className="btn btn-outline-success">Sign Up</button>                        
                     </Link>
             </div>
         )

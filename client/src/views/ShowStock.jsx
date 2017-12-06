@@ -54,7 +54,7 @@ class ShowStock extends React.Component {
                 <h3>{score}/5</h3>
                 
                 <Link to="/" onClick={this.onDeleteClick.bind(this)}>
-                <button className="btn btn-danger">Delete <i class="fa fa-trash" aria-hidden="true"></i></button>
+                <button className="btn btn-danger">Delete <i className="fa fa-trash" aria-hidden="true"></i></button>
                 </Link>
                 
             </div>

@@ -41,7 +41,10 @@ class MyReport extends React.Component {
                         {this.state.stocks.map((stock, index) => {
                             return (
                                 <div>
-                                    <button className="btn btn-light" key={stock._id}><Link to={`/show-stock/${stock._id}`} key={index}>{stock.name}</Link></button>
+                                    <Link to={`/show-stock/${stock._id}`} key={index}>
+                                    <button className="btn btn-light" key={stock._id}>{stock.name}</button>
+                                    </Link>
+                                    
                                     <br/>                                    
                                     <br/>
                                 </div>

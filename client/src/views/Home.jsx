@@ -15,7 +15,7 @@ const Home = (props) => {
                 <div className="container heading">
                     <i className="fa fa-bookmark-o" aria-hidden="true"></i>
                     <h1 className="display-3">Bookmark</h1>
-                    <p className="lead">Keep track of stocks to save time searching</p>
+                    <p className="lead">Save time searching by easily keeping track of stocks</p>
                 </div>
             </div>
 
@@ -23,7 +23,7 @@ const Home = (props) => {
                 <div className="container heading">
                     <i className="fa fa-calculator" aria-hidden="true"></i>
                     <h1 className="display-3">Auto-Calculate</h1>
-                    <p className="lead">ValueTip calculates key value investment factors for you</p>
+                    <p className="lead">Get calculations on key value investment factors done for you</p>
                 </div>
             </div>
 
@@ -31,7 +31,7 @@ const Home = (props) => {
                 <div className="container heading">
                     <i className="fa fa-tachometer" aria-hidden="true"></i>
                     <h1 className="display-3">Scoring</h1>
-                    <p className="lead">Help summarize all of the outcomes from calculations and analysis with an easy to track score</p>
+                    <p className="lead">Quick way to see summary of all initial calculations and analysis</p>
                 </div>
             </div>
 

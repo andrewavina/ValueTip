@@ -13,7 +13,9 @@ const NavBar = (props) => {
                     <span>
                         <Link to="/">
                         <div className="navbar-brand">
+                            <button type="button" className="btn btn-outline-secondary">
                             <img src="VT.png" width="30" height="30" alt=""/>
+                            </button>
                         </div>
                         </Link>
 

@@ -43,7 +43,7 @@ class Settings extends React.Component {
     render() {
         const { password } = this.state.fields 
             return (
-                <div className='settings'>
+                <div className='settings login-fields'>
                     <h1>Settings</h1>
                     
                     <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>

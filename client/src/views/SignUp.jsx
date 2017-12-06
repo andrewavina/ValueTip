@@ -32,7 +32,7 @@ class SignUp extends React.Component {
     render() {
         const { email, password } = this.state.fields
         return (
-            <div className='SignUp'>
+            <div className='SignUp login-fields'>
                 <h1>Sign Up</h1>
                 <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
                 <div className="form-group">
