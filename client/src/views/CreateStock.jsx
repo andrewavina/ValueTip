@@ -142,7 +142,7 @@ class CreateStock extends React.Component {
             score: score
         })
             .then(function (response) {
-                console.log(response);
+                // console.log(response);
                 self.setState({name: '', ticker: '', price: '', currentAssets: '', currentLiabilities: '', financialCondition: '', earnings2014: '', earnings2015: '', earnings2016: '', earningsStability: '', earningsGrowth: '', isThereDividend: '', dividendRecord: '', netTangibleAssets: '', outstandingShares:'', valuePrice: '', score: ''});
             })
             .catch(function (error) {
