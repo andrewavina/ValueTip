@@ -149,10 +149,6 @@ class CreateStock extends React.Component {
             .catch((error) => {  
                 console.log(error.response.data);
             });
-            
-            // if(event){
-            //     this.props.history.push(`/myreport`)
-            // }
     }
 
     render() {
