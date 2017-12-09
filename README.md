@@ -5,9 +5,11 @@
 <a href="https://murmuring-crag-60865.herokuapp.com/">See application here</a>
 
 ![Imgur](https://i.imgur.com/klOFhWq.png)
+---
 ![Imgur](https://i.imgur.com/G6tXicT.png)
+---
 ![Imgur](https://i.imgur.com/RArwtGq.png)
-
+---
 ## Tech Used
 * React (created via create-react-app)
 * Node.js
