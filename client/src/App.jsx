@@ -5,6 +5,7 @@ import clientAuth from './clientAuth'
 
 import NavBar from './NavBar'
 import Home from './views/Home'
+import About from './views/About'
 import LogIn from './views/LogIn'
 import LogOut from './views/LogOut'
 import SignUp from './views/SignUp'
@@ -114,6 +115,8 @@ class App extends React.Component {
                             : <Redirect to="/login" />
                     }} />
 
+                    <Route path="/about" component={About} />
+                    
                     <Route path="/" component={Home} />
 
                 </Switch>
