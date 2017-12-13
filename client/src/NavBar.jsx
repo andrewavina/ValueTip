@@ -26,6 +26,10 @@ const NavBar = (props) => {
                         <Link to="/settings" className="navbar-item">
                         <button type="button" className="btn btn-outline-secondary">Settings <i className="fa fa-address-card-o" aria-hidden="true"></i></button>
                         </Link>                                                
+                        
+                        <Link to="/about" className="navbar-item">
+                        <button type="button" className="btn btn-outline-secondary">About <i className="fa fa-address-card-o" aria-hidden="true"></i></button>
+                        </Link> 
 
                         <Link to="/logout">
                         <button type="button" id="logout" className="btn btn-outline-secondary">Log Out <i className="fa fa-sign-out" aria-hidden="true"></i></button>                        
@@ -40,6 +44,10 @@ const NavBar = (props) => {
                             <img src="VT.png" width="30" height="30" alt=""/>
                         </div>
                         </Link>
+
+                        <Link to="/about" className="navbar-item">
+                        <button type="button" className="btn btn-outline-secondary">About <i className="fa fa-address-card-o" aria-hidden="true"></i></button>
+                        </Link> 
 
                         <Link to="/login">
                         <button type="button" className="btn btn-outline-secondary">Login <i className="fa fa-sign-in" aria-hidden="true"></i></button>                        
