@@ -28,7 +28,7 @@ const NavBar = (props) => {
                         </Link>                                                
                         
                         <Link to="/about" className="navbar-item">
-                        <button type="button" className="btn btn-outline-secondary">About <i className="fa fa-address-card-o" aria-hidden="true"></i></button>
+                        <button type="button" className="btn btn-outline-secondary">About <i className="fa fa-info-circle" aria-hidden="true"></i></button>
                         </Link> 
 
                         <Link to="/logout">
@@ -46,7 +46,7 @@ const NavBar = (props) => {
                         </Link>
 
                         <Link to="/about" className="navbar-item">
-                        <button type="button" className="btn btn-outline-secondary">About <i className="fa fa-address-card-o" aria-hidden="true"></i></button>
+                        <button type="button" className="btn btn-outline-secondary">About <i className="fa fa-info-circle" aria-hidden="true"></i></button>
                         </Link> 
 
                         <Link to="/login">
