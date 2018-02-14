@@ -65,6 +65,6 @@ class Settings extends React.Component {
                 </div>
             )
     }
-} // last bracket
+} 
 
 export default Settings
