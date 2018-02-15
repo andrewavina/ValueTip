@@ -4,10 +4,12 @@
 
 <a href="https://murmuring-crag-60865.herokuapp.com/">See application here</a>
 
-![Imgur](https://i.imgur.com/cavOXsY.png)
-![Imgur](https://i.imgur.com/UISXQUS.png)
-![Imgur](https://i.imgur.com/v3qA1gj.png)
-
+![Imgur](https://i.imgur.com/klOFhWq.png)
+---
+![Imgur](https://i.imgur.com/G6tXicT.png)
+---
+![Imgur](https://i.imgur.com/RArwtGq.png)
+---
 ## Tech Used
 * React (created via create-react-app)
 * Node.js
@@ -16,6 +18,7 @@
 * Mongoose
 * Express.js
 * axios
+* API
 * JWT for authentication/authorization
 * Bootstrap library
 * HTML

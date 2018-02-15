@@ -50,7 +50,7 @@ class SignUp extends React.Component {
                 <hr className="my-4"/>
                 <label>Already have an account?</label>                                        
                     <Link to="/login">
-                    <button type="button" class="btn btn-outline-primary">Login</button>                        
+                    <button type="button" className="btn btn-outline-primary">Login</button>                        
                     </Link>
             </div>
         )
