@@ -5,8 +5,6 @@ const Footer = (props) => {
         <div className='Footer'>
             <footer id="gtco-footer" role="contentinfo">
                 <div className="gtco-container">
-                    
-
                     <div className="row copyright">
                         <div className="col-md-12">
                             <p className="pull-left">
@@ -21,7 +19,6 @@ const Footer = (props) => {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </footer>
         </div>
