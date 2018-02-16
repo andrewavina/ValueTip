@@ -39,7 +39,7 @@ const NavBar = (props) => {
                             <div className="col-xs-8 text-right menu-1">
                                 <ul>
                                     <Link to="/login"><li>Login</li></Link>
-                                    <Link to="/signup"><li>Sign Up</li></Link>
+                                    {/* <Link to="/signup"><li>Sign Up</li></Link> */}
                                 </ul>	
                             </div>
                         </div>
