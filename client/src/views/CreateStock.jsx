@@ -166,155 +166,176 @@ class CreateStock extends React.Component {
         const score = Number(financialCondition) + Number(earningsStability) + Number(earningsGrowth) + Number(dividendRecord) + Number(valuePrice);
         
         return (
-            <div>  {/* FIRST div*/} 
-                <h1 className="create-header">Add a Stock</h1>
-                
-                <form className="container create-stock-table" onSubmit={this.handleFormSubmit}>
-                    <table className="table table-bordered">
-                        <thead className="thead-dark">
-                            <tr>
-                            <th scope="col">GENERAL INFO</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>Name</td>
-                            <td>
-                                <input type="text" name="name" id="name" className="form-control" placeholder="name..." value={this.state.name} onChange={this.handleNameChange} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Ticker</td>
-                            <td>
-                                <input type="text" name="ticker" id="ticker" className="form-control" placeholder="ticker..." value={this.state.ticker} onChange={this.handleTickerChange} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Price</td>
-                            <td>
-                                <input type="number" name="price" id="price" className="form-control" placeholder="dollar amount..." value={this.state.price} onChange={this.handlePriceChange} />
-                            </td>
-                        </tr>
+            <div className="CreateStock">   
+                {/* NEW */}
+                <header id="gtco-header" className="gtco-cover gtco-cover-sm" role="banner" >
+                    <div className="overlay"></div>
+                    <div className="gtco-container">
+                        <div className="row">
+                            <div className="col-md-12 col-md-offset-0 text-center">
+                                <div className="row row-mt-15em">
+                                    <div className="col-md-12 mt-text " data-animate-effect="fadeInUp">
+                                        <h1>Add a Stock</h1>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <div className="gtco-section">
+                    <div className="gtco-container">
+
+                        {/* OLD */}
                         
-                        
-                        <tr className="thead-dark">
-                        <th scope="col">FINANCIAL CONDITION</th>
-                        </tr>
-                       
-                        <tr>
-                            <td>Current Assets</td>
-                            <td>
-                                <input type="number" name="currentAssets" id="currentAssets" className="form-control" placeholder="dollar amount..." value={this.state.currentAssets} onChange={this.handleAssetsChange} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Current Liabilities</td>
-                            <td>
-                                <input type="number" name="currentLiabilities" id="currentLiabilities" className="form-control" placeholder="dollar amount..." value={this.state.currentLiabilities} onChange={this.handleLiabilitiesChange} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Financial Condition</td>
-                            <td>
-                                <input type="text" name="financialCondition" id="financialCondition" className="form-control" value={financialCondition} disabled/>
-                            </td>
-                        </tr>
+                        <form className="container create-stock-table" onSubmit={this.handleFormSubmit}>
+                            <table className="table table-bordered">
+                                <thead className="thead-dark">
+                                    <tr>
+                                    <th scope="col">GENERAL INFO</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>
+                                        <input type="text" name="name" id="name" className="form-control" placeholder="name..." value={this.state.name} onChange={this.handleNameChange} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ticker</td>
+                                    <td>
+                                        <input type="text" name="ticker" id="ticker" className="form-control" placeholder="ticker..." value={this.state.ticker} onChange={this.handleTickerChange} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Price</td>
+                                    <td>
+                                        <input type="number" name="price" id="price" className="form-control" placeholder="dollar amount..." value={this.state.price} onChange={this.handlePriceChange} />
+                                    </td>
+                                </tr>
+                                
+                                
+                                <tr className="thead-dark">
+                                <th scope="col">FINANCIAL CONDITION</th>
+                                </tr>
+                            
+                                <tr>
+                                    <td>Current Assets</td>
+                                    <td>
+                                        <input type="number" name="currentAssets" id="currentAssets" className="form-control" placeholder="dollar amount..." value={this.state.currentAssets} onChange={this.handleAssetsChange} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Current Liabilities</td>
+                                    <td>
+                                        <input type="number" name="currentLiabilities" id="currentLiabilities" className="form-control" placeholder="dollar amount..." value={this.state.currentLiabilities} onChange={this.handleLiabilitiesChange} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Financial Condition</td>
+                                    <td>
+                                        <input type="text" name="financialCondition" id="financialCondition" className="form-control" value={financialCondition} disabled/>
+                                    </td>
+                                </tr>
 
-                        
-                        <tr className="thead-dark">
-                        <th scope="col">EARNINGS STABILITY</th>
-                        </tr>
-                        
-                        <tr>
-                            <td>2014 Earnings</td>
-                            <td>
-                                <input type="number" name="earnings2014" id="earnings2014" className="form-control" placeholder="dollar amount..." value={this.state.earnings2014} onChange={this.handleEarnings2014Change} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2015 Earnings</td>
-                            <td>
-                                <input type="number" name="earnings2015" id="earnings2015" className="form-control" placeholder="dollar amount..." value={this.state.earnings2015} onChange={this.handleEarnings2015Change} />                                
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2016 Earnings</td>
-                            <td>
-                                <input type="number" name="earnings2016" id="earnings2016" className="form-control" placeholder="dollar amount..." value={this.state.earnings2016} onChange={this.handleEarnings2016Change} />                                
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Earnings Stability</td>
-                            <td>
-                                <input type="text" name="earningsStability" id="earningsStability" className="form-control" value={earningsStability} disabled/>
-                            </td>
-                        </tr>
+                                
+                                <tr className="thead-dark">
+                                <th scope="col">EARNINGS STABILITY</th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>2014 Earnings</td>
+                                    <td>
+                                        <input type="number" name="earnings2014" id="earnings2014" className="form-control" placeholder="dollar amount..." value={this.state.earnings2014} onChange={this.handleEarnings2014Change} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2015 Earnings</td>
+                                    <td>
+                                        <input type="number" name="earnings2015" id="earnings2015" className="form-control" placeholder="dollar amount..." value={this.state.earnings2015} onChange={this.handleEarnings2015Change} />                                
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2016 Earnings</td>
+                                    <td>
+                                        <input type="number" name="earnings2016" id="earnings2016" className="form-control" placeholder="dollar amount..." value={this.state.earnings2016} onChange={this.handleEarnings2016Change} />                                
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Earnings Stability</td>
+                                    <td>
+                                        <input type="text" name="earningsStability" id="earningsStability" className="form-control" value={earningsStability} disabled/>
+                                    </td>
+                                </tr>
 
-                        <tr className="thead-dark">
-                            <th scope="col">EARNINGS GROWTH</th>
-                        </tr>
-                            <tr>
-                                <td>Earnings Growth</td>
-                                <td>
-                                    <input type="text" name="earningsGrowth" id="earningsGrowth" className="form-control" value={earningsGrowth} disabled/>
-                                </td>
-                            </tr>
+                                <tr className="thead-dark">
+                                    <th scope="col">EARNINGS GROWTH</th>
+                                </tr>
+                                    <tr>
+                                        <td>Earnings Growth</td>
+                                        <td>
+                                            <input type="text" name="earningsGrowth" id="earningsGrowth" className="form-control" value={earningsGrowth} disabled/>
+                                        </td>
+                                    </tr>
 
-                        <tr className="thead-dark">
-                            <th scope="col">DIVIDEND</th>
-                        </tr>
-                        <tr>
-                            <td>Dividend Amount:</td>
-                            <td>
-                                <input type="number" name="isThereDividend" id="isThereDividend" className="form-control" placeholder="dollar amount..." value={this.state.isThereDividend} onChange={this.handleIsThereDividendChange} />                                
-                            </td>
-                        </tr>
-                        <tr className="thead-dark">
-                            <td>Dividend:</td>
-                            <td>
-                                <input type="text" name="dividendRecord" id="dividendRecord" className="form-control" value={dividendRecord} disabled/>
-                            </td>
-                        </tr>
+                                <tr className="thead-dark">
+                                    <th scope="col">DIVIDEND</th>
+                                </tr>
+                                <tr>
+                                    <td>Dividend Amount:</td>
+                                    <td>
+                                        <input type="number" name="isThereDividend" id="isThereDividend" className="form-control" placeholder="dollar amount..." value={this.state.isThereDividend} onChange={this.handleIsThereDividendChange} />                                
+                                    </td>
+                                </tr>
+                                <tr className="thead-dark">
+                                    <td>Dividend:</td>
+                                    <td>
+                                        <input type="text" name="dividendRecord" id="dividendRecord" className="form-control" value={dividendRecord} disabled/>
+                                    </td>
+                                </tr>
 
 
-                        <tr className="thead-dark">
-                            <th scope="col">VALUE PRICE</th>
-                        </tr>
-                            <tr>
-                                <td>Net Tangible Assets</td>
-                                <td>
-                                    <input type="number" name="netTangibleAssets" id="netTangibleAssets" className="form-control" placeholder="dollar amount..." value={this.state.netTangibleAssets} onChange={this.handleNetTangibleAssetsChange} />
-                                </td>
-                            </tr>
+                                <tr className="thead-dark">
+                                    <th scope="col">VALUE PRICE</th>
+                                </tr>
+                                    <tr>
+                                        <td>Net Tangible Assets</td>
+                                        <td>
+                                            <input type="number" name="netTangibleAssets" id="netTangibleAssets" className="form-control" placeholder="dollar amount..." value={this.state.netTangibleAssets} onChange={this.handleNetTangibleAssetsChange} />
+                                        </td>
+                                    </tr>
 
-                            <tr>
-                                <td>Outstanding Shares</td>
-                                <td>
-                                    <input type="number" name="oustandingShares" id="oustandingShares" className="form-control" placeholder="number..." value={this.state.oustandingShares} onChange={this.handleOutstandingSharesChange} />
-                                </td>
-                            </tr>
+                                    <tr>
+                                        <td>Outstanding Shares</td>
+                                        <td>
+                                            <input type="number" name="oustandingShares" id="oustandingShares" className="form-control" placeholder="number..." value={this.state.oustandingShares} onChange={this.handleOutstandingSharesChange} />
+                                        </td>
+                                    </tr>
 
-                            <tr>
-                                <td>Value Price</td>
-                                <td>
-                                    <input type="text" name="valuePrice" id="valuePrice" className="form-control" value={valuePrice} disabled/>
-                                </td>
-                            </tr>
+                                    <tr>
+                                        <td>Value Price</td>
+                                        <td>
+                                            <input type="text" name="valuePrice" id="valuePrice" className="form-control" value={valuePrice} disabled/>
+                                        </td>
+                                    </tr>
 
-                        <tr className="thead-dark">
-                        <th scope="col"></th>
-                        </tr>
-                        
-                        <tr>
-                            <td>Score</td>
-                            <td>
-                                <input type="text" name="score" id="score" className="form-control" value={score} disabled/>                                
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <button type="submit" className="btn btn-light">Add Stock</button>                    
-            </form>
+                                <tr className="thead-dark">
+                                <th scope="col"></th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>Score</td>
+                                    <td>
+                                        <input type="text" name="score" id="score" className="form-control" value={score} disabled/>                                
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <button type="submit" className="btn btn-primary">Add Stock</button>                    
+                    </form>
+                    </div>
+                </div>
         </div> //LAST div
         )
     }
