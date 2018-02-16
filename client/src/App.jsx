@@ -42,7 +42,6 @@ class App extends React.Component {
     deleteUser() { 
         clientAuth.deleteUser(this.state.currentUser)
         this.setState({ currentUser: null })
-        console.log("worked")
     }
 
     editUser() { 

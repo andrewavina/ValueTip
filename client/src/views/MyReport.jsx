@@ -63,7 +63,7 @@ class MyReport extends React.Component {
                             <div className="col-lg-4 col-md-4 col-sm-6">
                                 <div className="fh5co-card-item image-popup">
                                     <figure>
-                                        <img src="images/img_1.jpg" className="img-responsive"></img>
+                                        <img src="images/img_1.jpg" alt="" className="img-responsive"></img>
                                         {/* Clearbit - try to get logo */}
                                         {/* <img src={this.state.companyImage} className="img-responsive"/> */}
                                     </figure>
