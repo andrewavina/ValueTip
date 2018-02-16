@@ -43,25 +43,50 @@ class Settings extends React.Component {
     render() {
         const { password } = this.state.fields 
             return (
-                <div className='settings login-fields'>
-                    <h1>Settings</h1>
-                    
-                    <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
-                        <div className="form-group">
-                            <label>Enter New Password</label>
-                            <input type="password" placeholder="Password" name="password" defaultValue={password} className="form-control"/>                                     
+                <div className='settings'>
+                    <header id="gtco-header" className="gtco-cover gtco-cover-sm" role="banner">
+                        <div className="overlay"></div>
+                        <div className="gtco-container">
+                            <div className="row">
+                                <div className="col-md-12 col-md-offset-0 text-center">
+                                    <div className="row row-mt-15em">
+                                        <div className="col-md-12 mt-text" data-animate-effect="fadeInUp">
+                                            <h1>Settings</h1>	
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <button className="btn btn-primary">Change Password <i className="fa fa-wrench" aria-hidden="true"></i></button>
-                    </form>
-
-                    <br/>
-                    <hr/>
-                    <h2>Delete Your Account:</h2>                    
+                    </header>
                     
-                    <Link to="/deleteuser">
-                        <button className="btn btn-danger">Delete Account <i className="fa fa-trash" aria-hidden="true" /></button>
-                    </Link>  
-
+                    <div className="gtco-section">
+                        <div className="gtco-container">
+                            <div className="row">
+                                <div className="col-md-8 col-md-offset-2 text-center gtco-heading">
+                                    <h2>Change Password</h2>
+                                    <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
+                                        <div className="row form-group">
+                                            <div className="col-md-12">
+                                                <label >Enter New Password</label>
+                                                <input type="password" placeholder="Password" name="password" defaultValue={password} className="form-control"/>
+                                            </div>
+                                        </div>
+                                        <div className="row form-group">
+                                            <div className="col-md-12">
+                                                <button className="btn btn-primary">Submit</button>
+                                            </div>
+                                        </div>
+                                    </form>					
+                                    <h2>Delete Account</h2>
+                                    <div className="row form-group">
+                                        <Link to="/deleteuser">
+                                            <button className="btn btn-danger">Delete Account </button>
+                                        </Link> 										
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             )
     }
