@@ -4,6 +4,7 @@ import clientAuth from './clientAuth'
 
 
 import NavBar from './NavBar'
+import Footer from './Footer'
 import Home from './views/Home'
 import LogIn from './views/LogIn'
 import LogOut from './views/LogOut'
@@ -53,6 +54,9 @@ class App extends React.Component {
         const { currentUser } = this.state
         return (
             <div className='App'>
+                <div className="gtco-loader"></div>
+	
+                <div id="page">
                 
                 <NavBar currentUser={this.state.currentUser} />
 
@@ -118,9 +122,16 @@ class App extends React.Component {
 
                 </Switch>
 
-                {/* <Footer /> */}
+                <Footer />
 
-            </div>
+                </div> {/* .page */}
+                
+                {/* auto scroll to top */}
+                <div className="gototop js-top">
+                    <a className="js-gotop"><i className="icon-arrow-up"></i></a>
+                </div>
+
+            </div> // .page
         )
     }
 }

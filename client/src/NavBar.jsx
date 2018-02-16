@@ -5,53 +5,48 @@ const NavBar = (props) => {
     return (
         
         <div className='NavBar'>
-            <nav className="navbar fixed-top navbar-dark bg-dark bg-light"> 
+            <div className="gtco-nav" role="navigation"> 
             
             {props.currentUser
                 ? ( 
                     //Logged In User sees:
-                    <span>
-                        <Link to="/">
-                        <div className="navbar-brand">
-                            <button type="button" className="btn btn-outline-secondary">
-                            <img src="VT.png" width="30" height="30" alt=""/>
-                            </button>
+                    <div className="gtco-container">
+                        <div className="row">
+                            <div className="col-sm-4 col-xs-12">
+                                <div id="gtco-logo">
+                                    <Link to="/"><div>ValueTip<em>.</em></div></Link>
+                                </div>
+                            </div>
+                            <div className="col-xs-8 text-right menu-1">
+                                <ul>
+                                    <Link to="/myreport"><li>My Report</li></Link>
+                                    <Link to="/settings"><li>Settings</li></Link>
+                                    <Link to="/logout"><li>Log Out</li></Link>
+                                </ul>	
+                            </div>
                         </div>
-                        </Link>
-
-                        <Link to="/myreport">
-                        <button type="button" className="btn btn-outline-secondary">My Report <i className="fa fa-list-alt" aria-hidden="true"></i></button>                        
-                        </Link>
-                  
-                        <Link to="/settings" className="navbar-item">
-                        <button type="button" className="btn btn-outline-secondary">Settings <i className="fa fa-address-card-o" aria-hidden="true"></i></button>
-                        </Link>                                                
-
-                        <Link to="/logout">
-                        <button type="button" id="logout" className="btn btn-outline-secondary">Log Out <i className="fa fa-sign-out" aria-hidden="true"></i></button>                        
-                        </Link>
-                    </span>
+                    </div>
                 )
                 : (
                     //Else NOT logged in sees:                    
-                    <span>
-                        <Link to="/">
-                        <div className="navbar-brand">
-                            <img src="VT.png" width="30" height="30" alt=""/>
+                    <div className="gtco-container">
+                        <div className="row">
+                            <div className="col-sm-4 col-xs-12">
+                                <div id="gtco-logo">
+                                    <Link to="/"><div>ValueTip<em>.</em></div></Link>
+                                </div>
+                            </div>
+                            <div className="col-xs-8 text-right menu-1">
+                                <ul>
+                                    <Link to="/login"><li>Login</li></Link>
+                                    <Link to="/signup"><li>Sign Up</li></Link>
+                                </ul>	
+                            </div>
                         </div>
-                        </Link>
-
-                        <Link to="/login">
-                        <button type="button" className="btn btn-outline-secondary">Login <i className="fa fa-sign-in" aria-hidden="true"></i></button>                        
-                        </Link>
-
-                        <Link to="/signup">
-                        <button type="button" className="btn btn-outline-secondary">Sign Up <i className="fa fa-user-plus" aria-hidden="true"></i></button>                        
-                        </Link>
-                    </span>
+                    </div>
                 )
             }
-            </nav>
+            </div>
         </div>
     )
 }
