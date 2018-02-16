@@ -39,27 +39,50 @@ class ShowStock extends React.Component {
 
         return (
             <div className="ShowStock">
-                <h1>Company Name: {name}</h1>
-                <h3>Stock Ticker: {ticker}</h3>
-                <h3>Price per Share: ${price}</h3>
-                <hr/>
-                <h4>Calculation Results</h4>
-                <h6>Financial Condition: {financialCondition}</h6>
-                <h6>Earnings Stability: {earningsStability}</h6>
-                <h6>Earnings Growth: {earningsGrowth}</h6>
-                <h6>Dividend Record: {dividendRecord}</h6>
-                <h6>Value Price: {valuePrice}</h6>
-                <hr/>
-                <h3>Score:</h3>
-                <h3>{score}/5</h3>
+                {/* NEW */}
+
+                <header id="gtco-header" className="gtco-cover gtco-cover-sm" role="banner" >
+                    <div className="overlay"></div>
+                    <div className="gtco-container">
+                        <div className="row">
+                            <div className="col-md-12 col-md-offset-0 text-center">
+                                <div className="row row-mt-15em">
+                                    <div className="col-md-12 mt-text " data-animate-effect="fadeInUp">
+                                        <h1>Company Name: {name}</h1>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
                 
-                <Link to="/" onClick={this.onDeleteClick.bind(this)}>
-                <button className="btn btn-danger">Delete <i className="fa fa-trash" aria-hidden="true"></i></button>
-                </Link>
-                
+                <div className="gtco-section">
+                    <div className="gtco-container">
+                        <div className="row">
+                            <div className="col-md-8 col-md-offset-2 text-center gtco-heading">
+                                <h3>Stock Ticker: {ticker}</h3>
+                                <h3>Price per Share: ${price}</h3>
+                           
+                                <h4>Calculation Results</h4>
+                                <h6>Financial Condition: {financialCondition}</h6>
+                                <h6>Earnings Stability: {earningsStability}</h6>
+                                <h6>Earnings Growth: {earningsGrowth}</h6>
+                                <h6>Dividend Record: {dividendRecord}</h6>
+                                <h6>Value Price: {valuePrice}</h6>
+                               
+                                <h3>Score:</h3>
+                                <h3>{score}/5</h3>
+                                
+                                <Link to="/" onClick={this.onDeleteClick.bind(this)}>
+                                    <button className="btn btn-danger">Delete</button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
             </div>
         )
     }
-} //last bracket
+}
 
 export default ShowStock

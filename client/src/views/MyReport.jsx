@@ -31,7 +31,6 @@ class MyReport extends React.Component {
         // console.log(this.props.currentUser) // test to see current user
         return (
             <div className="MyReport">
-                {/* NEW */}
                 <header id="gtco-header" className="gtco-cover gtco-cover-sm" role="banner" >
                     <div className="overlay"></div>
                     <div className="gtco-container">
@@ -39,7 +38,7 @@ class MyReport extends React.Component {
                             <div className="col-md-12 col-md-offset-0 text-center">
                                 <div className="row row-mt-15em">
                                     <div className="col-md-12 mt-text" data-animate-effect="fadeInUp">
-                                        <h1>My Report</h1>	
+                                        <h1>My Report</h1>
                                     </div>
                                 </div>
                             </div>
