@@ -117,7 +117,11 @@ class App extends React.Component {
                             : <Redirect to="/login" />
                     }} />
 
-                    <Route path="/" component={Home} />
+                    <Route path="/" render={(props) => {
+                        return !currentUser
+                        ? <Home {...props} onSignUpSuccess={this.onLoginSuccess.bind(this)} />
+                        : <Redirect to="/myreport" /> //fixed issue where if currentUser typed in /signup in URL bar, they would be able to go to that page. Set it up like this to prevent them from accessing that page to avoid any potential "double sign up" issues.
+                    }} />
 
                 </Switch>
 
