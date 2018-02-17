@@ -8,7 +8,7 @@ import Footer from './Footer'
 import Home from './views/Home'
 import LogIn from './views/LogIn'
 import LogOut from './views/LogOut'
-import SignUp from './views/SignUp'
+// import SignUp from './views/SignUp'
 import MyReport from './views/MyReport'
 //Users
 import Settings from './views/Settings'
@@ -104,11 +104,11 @@ class App extends React.Component {
                     }} />
 
                     {/* the sign up component takes an 'onSignUpSuccess' prop which will perform the same thing as onLoginSuccess: set the state to contain the currentUser */}
-                    <Route path="/signup" render={(props) => {
+                    {/* <Route path="/signup" render={(props) => {
                         return !currentUser
                         ? <SignUp {...props} onSignUpSuccess={this.onLoginSuccess.bind(this)} />
                         : <Redirect to="/myreport" /> //fixed issue where if currentUser typed in /signup in URL bar, they would be able to go to that page. Set it up like this to prevent them from accessing that page to avoid any potential "double sign up" issues.
-                    }} /> 
+                    }} />  */}
                     
                     <Route path="/myreport" render={(props) => {
                         // console.log(currentUser) // test current user is coming through
