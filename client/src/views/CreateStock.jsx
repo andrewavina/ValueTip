@@ -10,6 +10,7 @@ class CreateStock extends React.Component {
         name: '',
         ticker: '',
         price: '',
+        date: '',        
         //#1 - Financial Condition        
         currentAssets: '',
         currentLiabilities: '',
@@ -38,7 +39,8 @@ class CreateStock extends React.Component {
     //fields' values from changes to input fields
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleTickerChange = this.handleTickerChange.bind(this);
-    this.handlePriceChange = this.handlePriceChange.bind(this);        
+    this.handlePriceChange = this.handlePriceChange.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);    
     this.handleAssetsChange = this.handleAssetsChange.bind(this);
     this.handleLiabilitiesChange = this.handleLiabilitiesChange.bind(this);
     this.handleEarnings2014Change = this.handleEarnings2014Change.bind(this);
@@ -61,6 +63,10 @@ class CreateStock extends React.Component {
 
     handlePriceChange(event) {
         this.setState(...this.state, {price: event.target.value});
+    }
+
+    handleDateChange(event) {
+        this.setState(...this.state, {date: event.target.value});
     }
 
     handleAssetsChange(event) {
@@ -100,6 +106,7 @@ class CreateStock extends React.Component {
         let name = this.state.name;
         let ticker = this.state.ticker;
         let price = this.state.price;
+        let date = this.state.date;        
         
         let currentAssets = this.state.currentAssets;
         let currentLiabilities = this.state.currentLiabilities;
@@ -126,6 +133,7 @@ class CreateStock extends React.Component {
             name: name,
             ticker: ticker,
             price: price,
+            date: date,            
             currentAssets: currentAssets,
             currentLiabilities: currentLiabilities,
             financialCondition: financialCondition,
@@ -143,7 +151,7 @@ class CreateStock extends React.Component {
         })
             .then((response) => {
                 // console.log(response);
-                self.setState({name: '', ticker: '', price: '', currentAssets: '', currentLiabilities: '', financialCondition: '', earnings2014: '', earnings2015: '', earnings2016: '', earningsStability: '', earningsGrowth: '', isThereDividend: '', dividendRecord: '', netTangibleAssets: '', outstandingShares:'', valuePrice: '', score: ''});
+                self.setState({name: '', ticker: '', price: '', date: '', currentAssets: '', currentLiabilities: '', financialCondition: '', earnings2014: '', earnings2015: '', earnings2016: '', earningsStability: '', earningsGrowth: '', isThereDividend: '', dividendRecord: '', netTangibleAssets: '', outstandingShares:'', valuePrice: '', score: ''});
                 this.props.history.push(`/myreport`)
             })
             .catch((error) => {  
@@ -167,7 +175,7 @@ class CreateStock extends React.Component {
         
         return (
             <div className="CreateStock">   
-                {/* NEW */}
+             
                 <header id="gtco-header" className="gtco-cover gtco-cover-sm" role="banner" >
                     <div className="overlay"></div>
                     <div className="gtco-container">
@@ -185,8 +193,6 @@ class CreateStock extends React.Component {
 
                 <div className="gtco-section">
                     <div className="gtco-container">
-
-                        {/* OLD */}
                         
                         <form className="container create-stock-table" onSubmit={this.handleFormSubmit}>
                             <table className="table table-bordered">
@@ -214,7 +220,12 @@ class CreateStock extends React.Component {
                                         <input type="number" name="price" id="price" className="form-control" placeholder="dollar amount..." value={this.state.price} onChange={this.handlePriceChange} />
                                     </td>
                                 </tr>
-                                
+                                <tr>
+                                    <td>Date of Price Point</td>
+                                    <td>
+                                        <input type="text" name="date" id="date" className="form-control" placeholder="date..." value={this.state.date} onChange={this.handleDateChange} />
+                                    </td>
+                                </tr>
                                 
                                 <tr className="thead-dark">
                                 <th scope="col">FINANCIAL CONDITION</th>

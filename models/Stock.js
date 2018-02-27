@@ -4,7 +4,7 @@ const
         name: { type: String, required: true},
         ticker: { type: String, required: true },
         price: { type: Number, required: true },
-
+        date: { type: String },
         currentAssets: { type: Number },
         currentLiabilities: { type: Number },
         financialCondition: { type: String },
