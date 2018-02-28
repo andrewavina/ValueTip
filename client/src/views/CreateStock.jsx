@@ -10,6 +10,7 @@ class CreateStock extends React.Component {
         name: '',
         ticker: '',
         price: '',
+        targetPrice: '',
         date: '',        
         //#1 - Financial Condition        
         currentAssets: '',
@@ -106,6 +107,7 @@ class CreateStock extends React.Component {
         let name = this.state.name;
         let ticker = this.state.ticker;
         let price = this.state.price;
+        let targetPrice = Number(Number(price) + Number(price * 0.4)).toFixed(2);
         let date = this.state.date;        
         
         let currentAssets = this.state.currentAssets;
@@ -133,6 +135,7 @@ class CreateStock extends React.Component {
             name: name,
             ticker: ticker,
             price: price,
+            targetPrice: targetPrice,
             date: date,            
             currentAssets: currentAssets,
             currentLiabilities: currentLiabilities,
@@ -151,7 +154,7 @@ class CreateStock extends React.Component {
         })
             .then((response) => {
                 // console.log(response);
-                self.setState({name: '', ticker: '', price: '', date: '', currentAssets: '', currentLiabilities: '', financialCondition: '', earnings2014: '', earnings2015: '', earnings2016: '', earningsStability: '', earningsGrowth: '', isThereDividend: '', dividendRecord: '', netTangibleAssets: '', outstandingShares:'', valuePrice: '', score: ''});
+                self.setState({name: '', ticker: '', price: '', targetPrice: '', date: '', currentAssets: '', currentLiabilities: '', financialCondition: '', earnings2014: '', earnings2015: '', earnings2016: '', earningsStability: '', earningsGrowth: '', isThereDividend: '', dividendRecord: '', netTangibleAssets: '', outstandingShares:'', valuePrice: '', score: ''});
                 this.props.history.push(`/myreport`)
             })
             .catch((error) => {  
@@ -160,6 +163,8 @@ class CreateStock extends React.Component {
     }
 
     render() {
+        let targetPrice = Number(Number(this.state.price) + Number(this.state.price * 0.4)).toFixed(2);
+
         const financialCondition = this.state.currentAssets > (1.5 * this.state.currentLiabilities);
            
         let earningsStability = this.state.earnings2016 > 0 && this.state.earnings2015 > 0 && this.state.earnings2014 > 0;           
@@ -218,6 +223,12 @@ class CreateStock extends React.Component {
                                     <td>Price</td>
                                     <td>
                                         <input type="number" name="price" id="price" className="form-control" placeholder="dollar amount..." value={this.state.price} onChange={this.handlePriceChange} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Target Price (40% growth)</td>
+                                    <td>
+                                        <input type="number" name="targetPrice" id="targetPrice" className="form-control" value={targetPrice} disabled/>
                                     </td>
                                 </tr>
                                 <tr>

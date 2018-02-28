@@ -35,7 +35,7 @@ class ShowStock extends React.Component {
 
     render() {
         const 
-            { name, ticker, price, date, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice, score } = this.state.stock
+            { name, ticker, price, targetPrice, date, financialCondition, earningsStability, dividendRecord, earningsGrowth, valuePrice, score } = this.state.stock
 
         return (
             <div className="ShowStock">
@@ -62,6 +62,7 @@ class ShowStock extends React.Component {
                             <div className="col-md-8 col-md-offset-2 text-center gtco-heading">
                                 <h3>Stock Ticker: {ticker}</h3>
                                 <h3>Price per Share: ${price}</h3>
+                                <h3>Target Price (40% growth): ${targetPrice}</h3>                                
                                 <h3>Date of Price Point: {date}</h3>                                
                            
                                 <h4>Calculation Results</h4>
