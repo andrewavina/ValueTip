@@ -62,8 +62,8 @@ class ShowStock extends React.Component {
                             <div className="col-md-8 col-md-offset-2 text-center gtco-heading">
                                 <h3>Stock Ticker: {ticker}</h3>
                                 <h3>Price per Share: ${price}</h3>
-                                <h3>Target Price (40% growth): ${targetPrice}</h3>                                
-                                <h3>Date of Price Point: {date}</h3>                                
+                                <h3>Target Price (20% growth): ${targetPrice}</h3>                                
+                                {/* <h3>Date of Price Point: {date}</h3>                                
                            
                                 <h4>Calculation Results</h4>
                                 <h6>Financial Condition: {financialCondition}</h6>
@@ -73,7 +73,7 @@ class ShowStock extends React.Component {
                                 <h6>Value Price: {valuePrice}</h6>
                                
                                 <h3>Score:</h3>
-                                <h3>{score}/5</h3>
+                                <h3>{score}/5</h3> */}
                                 
                                 <Link to="/" onClick={this.onDeleteClick.bind(this)}>
                                     <button className="btn btn-danger">Delete</button>

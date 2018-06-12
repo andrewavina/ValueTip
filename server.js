@@ -21,8 +21,15 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 
 app.get('/api', (req, res) => {
-    res.json({message: "API root."})
-})
+    let a = 2 * 1.2;
+    let b = 2383;
+    let c = a + b;
+    res.json({
+        a, 
+        b,
+        c
+    });
+});
 
 app.use('/api/users', usersRoutes)
 app.use('/api/stocks', stocksRoutes)
